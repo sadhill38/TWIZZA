@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--   sale.order.line : tree view inherit     -->
+        <record id="al_view_sale_order_line_tree_rates" model="ir.ui.view">
+            <field name="name">al.view.sale.order.line.tree.rates</field>
+            <field name="model">sale.order.line</field>
+            <field name="inherit_id" ref="sale.view_order_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='price_subtotal']" position="before">
+                    <field name="margin_rate"/>
+                    <field name="service_rate"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- sale.order.line : form view inherit -->
+        <record id="al_sale_order_line_view_form_readonly_rates" model="ir.ui.view">
+            <field name="name">al.sale.order.line.view.form.readonly.rates</field>
+            <field name="model">sale.order.line</field>
+            <field name="inherit_id" ref="sale.sale_order_line_view_form_readonly"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_id']" position="before">
+                    <field name="product_category_id"/>
+                </xpath>
+                <xpath expr="//field[@name='currency_id']" position="after">
+                    <field name="margin_rate"/>
+                    <field name="service_rate"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
