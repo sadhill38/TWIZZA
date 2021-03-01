@@ -28,10 +28,12 @@
     'depends': [
         'sale',
         'sale_stock',
+        'sale_margin',
     ],
 
     # always loaded
     'data': [
+        'security/security.xml',
         # 'security/ir.model.access.csv',
         'views/sale_views.xml',
     ],
