@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
         <!--   sale.order.line : tree view inherit     -->
         <record id="al_view_sale_order_line_tree_rates" model="ir.ui.view">
             <field name="name">al.view.sale.order.line.tree.rates</field>
