@@ -22,7 +22,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='product_id']" position="before">
                     <!--          todo : remove after compute          -->
-<!--                    <button name="action_compute_purchase_price" type="object" string="Compute Purchase price"/>-->
+                    <button name="action_compute_purchase_price" type="object" string="Compute Purchase price"/>
                     <field name="product_category_id"/>
                 </xpath>
             </field>
