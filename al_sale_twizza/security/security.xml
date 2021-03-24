@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+
+        <record id="group_create_invoices_from_sales" model="res.groups">
+            <field name="name">Create invoices from sales</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+
+    </data>
+</odoo>
