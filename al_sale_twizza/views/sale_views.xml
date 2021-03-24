@@ -20,7 +20,7 @@
             <field name="inherit_id" ref="sale.sale_order_line_view_form_readonly"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='product_id']" position="before">
-                    <button name="action_compute_purchase_price" type="object" string="Compute Purchase price"/>
+<!--                    <button name="action_compute_purchase_price" type="object" string="Compute Purchase price"/>-->
                     <field name="product_category_id"/>
                 </xpath>
             </field>
