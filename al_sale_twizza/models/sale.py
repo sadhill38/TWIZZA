@@ -9,7 +9,7 @@ class SaleOrderLineInherit(models.Model):
     _inherit = 'sale.order.line'
 
     product_category_id = fields.Many2one('product.category', string="Product Category", related='product_id.categ_id', readonly=True, store=True)
-    total_purchase_price = fields.Monetary(string="Total cost", compute="_compute_cost", store=True)
+    total_purchase_price = fields.Float(string="Total cost", compute="_compute_cost", store=True, digits='Product Price')
 
     # def action_compute_purchase_price(self):
     #     for rec in self.env['sale.order.line'].search([]):
