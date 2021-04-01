@@ -10,10 +10,10 @@
     'name': "@lahlou : Direction Reports",
 
     'summary': """
-        Add Customized Dashboard reports for Direction.""",
+        Add Customized Dashboard reports for the Direction.""",
 
     'description': """
-        Add Customized Dashboard reports for Direction.
+        Add Customized Dashboard reports for the Direction.
     """,
 
     'author': "Ahmed LAHLOU, @lahlou",
@@ -22,21 +22,25 @@
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full listhr
-    'category': 'sale',
+    'category': 'report',
     'version': '13.0.0.1',
 
     'depends': [
-        'sale',
-        'sale_stock',
-        'sale_margin',
+        'base',
+        'board',
+        'al_sale_twizza',
         'web_pivot_computed_measure',
     ],
 
     # always loaded
     'data': [
+        # Security
         'security/security.xml',
-        # 'security/ir.model.access.csv',
-        'views/sale_views.xml',
+        'security/ir.model.access.csv',
+        # Views
+        'views/sales_report.xml',
+        # menus : keep last
+        'views/menuitems.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
