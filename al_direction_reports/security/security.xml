@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+
+        <record id="category_direction_reports" model="ir.module.category">
+            <field name="name">Reports : Direction</field>
+            <field name="sequence" eval="100"/>
+        </record>
+
+        <record id="group_dashboard_director" model="res.groups">
+            <field name="name">Director</field>
+            <field name="category_id" ref="category_direction_reports"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+    </data>
+</odoo>
