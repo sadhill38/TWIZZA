@@ -7,13 +7,13 @@
 #
 ###################################################################################
 {
-    'name': "@lahlou : Direction Reports",
+    'name': "@lahlou : Twizza Dashboard",
 
     'summary': """
-        Add Customized Dashboard reports for the Direction.""",
+        Add Customized Dashboards for Twizza.""",
 
     'description': """
-        Add Customized Dashboard reports for the Direction.
+        Add Customized Dashboards for Twizza.
     """,
 
     'author': "Ahmed LAHLOU, @lahlou",
@@ -23,7 +23,7 @@
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full listhr
     'category': 'report',
-    'version': '13.0.0.1',
+    'version': '13.0.0.2',
 
     'depends': [
         'base',

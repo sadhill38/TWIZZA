@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_twizza_sales_report_by_user,twizza.sales.report.user,al_dashboard_twizza.model_twizza_sales_report,al_dashboard_twizza.group_twizza_dashboard_user,1,0,0,0

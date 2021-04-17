@@ -29,7 +29,29 @@ class SaleOrderLineInherit(models.Model):
             margin_invoiced = line.untaxed_amount_invoiced - (price * line.qty_invoiced)
             line.margin_invoiced = currency.round(margin_invoiced) if currency else margin_invoiced
 
-    @api.depends('product_uom_qty', 'purchase_price')
+    @api.depends('product_uom_qty', 'purchase_price', 'order_id.currency_id')
     def _compute_cost(self):
         for rec in self:
-            rec.total_purchase_price = rec.product_uom_qty * rec.purchase_price
+            total_cost = rec.product_uom_qty * rec.purchase_price
+            rec.total_purchase_price = rec.order_id.currency_id.round(total_cost)
+
+
+class SaleOrderInherit(models.Model):
+    _inherit = 'sale.order'
+
+    days_to_confirm = fields.Float(string='Days to confirm', compute='_compute_days_to', store=True)
+    days_to_invoice = fields.Float(string='Days to invoice', compute='_compute_days_to', store=True)
+
+    @api.depends('create_date', 'date_order', 'state', 'invoice_ids', 'invoice_ids.invoice_date')
+    def _compute_days_to(self):
+        for rec in self:
+            rec.days_to_confirm = (rec.date_order - rec.create_date).days if rec.state in ['sale', 'done'] else 0.0
+            delivered_dates = self.env['stock.picking'].search([
+                ('sale_id', '=', rec.id),
+                ('state', 'in', ['done'])
+            ]).mapped('date_done')
+            invoiced_dates = rec.invoice_ids.filtered(lambda x: x.state in ['posted']).mapped('invoice_date')
+            days_to_invoice = 0.0
+            if rec.state in ['sale', 'done'] and delivered_dates and invoiced_dates:
+                days_to_invoice = (max(invoiced_dates) - max(delivered_dates).date()).days
+            rec.days_to_invoice = days_to_invoice
