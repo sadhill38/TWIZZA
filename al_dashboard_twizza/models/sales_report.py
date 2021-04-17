@@ -37,7 +37,7 @@ class DirectionSalesReport(models.Model):
     # volume = fields.Float(string='Volume', readonly=True)
     days_to_confirm = fields.Float(string='Days To Confirm', readonly=True, group_operator="avg")
     days_to_invoice = fields.Float(string='Days To Invoice', readonly=True, group_operator="avg")
-    total_purchase_price = fields.Float(string="Total cost", readonly=True, groups='al_dashboard_twizza.group_twizza_dashboard_manager')
+    # total_purchase_price = fields.Float(string="Total cost", readonly=True, groups='al_dashboard_twizza.group_twizza_dashboard_manager')
     price_tax = fields.Float(string='Total Tax', readonly=True)
     # Col/Row
     name = fields.Char(string='Order Reference', readonly=True)
@@ -101,7 +101,6 @@ class DirectionSalesReport(models.Model):
             sum(l.price_subtotal / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) as price_subtotal,
             sum(l.price_unit * l.product_uom_qty / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) as subtotal_nodiscount,
             sum(l.untaxed_amount_invoiced / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) as untaxed_amount_invoiced,
-            sum(l.total_purchase_price / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) as total_purchase_price,
             sum(l.margin / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) as margin,
             sum(l.margin_invoiced / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) as margin_invoiced,
             sum(l.price_tax / CASE COALESCE(s.currency_rate, 0) WHEN 0 THEN 1.0 ELSE s.currency_rate END) as price_tax,
