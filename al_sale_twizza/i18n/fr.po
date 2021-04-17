@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e-20210111\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-01 10:12+0000\n"
-"PO-Revision-Date: 2021-04-01 10:12+0000\n"
+"POT-Creation-Date: 2021-04-17 15:26+0000\n"
+"PO-Revision-Date: 2021-04-17 15:26+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,16 @@ msgid "Create invoices from sales"
 msgstr "Création de factures depuis les ventes"
 
 #. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order__days_to_confirm
+msgid "Days to confirm"
+msgstr "Jours pour confirmer"
+
+#. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order__days_to_invoice
+msgid "Days to invoice"
+msgstr "Jours pour facturer"
+
+#. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order_line__margin_invoiced
 msgid "Margin Invoiced"
 msgstr "Marge Facturée"
@@ -29,6 +39,11 @@ msgstr "Marge Facturée"
 #: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order_line__product_category_id
 msgid "Product Category"
 msgstr "Catégorie d'article"
+
+#. module: al_sale_twizza
+#: model:ir.model,name:al_sale_twizza.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
 
 #. module: al_sale_twizza
 #: model:ir.model,name:al_sale_twizza.model_sale_order_line

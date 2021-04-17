@@ -27,6 +27,7 @@
 
     'depends': [
         'sale',
+        'account',
         'sale_stock',
         'sale_margin',
     ],

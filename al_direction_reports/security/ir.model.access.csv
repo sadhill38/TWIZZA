@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_direction_sales_report_by_director,direction.sales.report.manager,al_direction_reports.model_direction_sales_report,al_direction_reports.group_dashboard_director,1,1,1,1

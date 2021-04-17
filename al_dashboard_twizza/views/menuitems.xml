@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="menu_twizza_sales_report"
+              name="Sales Analysis"
+              parent="base.menu_board_root"
+              action="al_dashboard_twizza.action_twizza_sales_report"
+              groups="al_dashboard_twizza.group_twizza_dashboard_user"
+              sequence="10"/>
+
+</odoo>
