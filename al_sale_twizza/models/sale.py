@@ -56,6 +56,7 @@ class SaleOrderInherit(models.Model):
     def modifier_set_readonly(res, expression):
         doc = etree.XML(res['arch'])
         for node in doc.xpath(expression):
+            node.set('force_save', '1')
             modifiers = json.loads(node.get("modifiers"))
             modifiers['readonly'] = True
             node.set("modifiers", json.dumps(modifiers))
