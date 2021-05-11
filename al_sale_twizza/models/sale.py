@@ -62,14 +62,14 @@ class SaleOrderInherit(models.Model):
             node.set("modifiers", json.dumps(modifiers))
         res['arch'] = etree.tostring(doc)
 
-    # @staticmethod
-    # def modifier_set_invisible(res, expression):
-    #     doc = etree.XML(res['arch'])
-    #     for node in doc.xpath(expression):
-    #         modifiers = json.loads(node.get("modifiers"))
-    #         modifiers['invisible'] = True
-    #         node.set("modifiers", json.dumps(modifiers))
-    #     res['arch'] = etree.tostring(doc)
+    @staticmethod
+    def modifier_set_invisible(res, expression):
+        doc = etree.XML(res['arch'])
+        for node in doc.xpath(expression):
+            modifiers = json.loads(node.get("modifiers"))
+            modifiers['invisible'] = True
+            node.set("modifiers", json.dumps(modifiers))
+        res['arch'] = etree.tostring(doc)
 
     @api.model
     def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
@@ -77,11 +77,12 @@ class SaleOrderInherit(models.Model):
         if view_type == 'form':
             is_admin_sales = self.env.user.has_group('sales_team.group_sale_manager')
             if not is_admin_sales:
-                xpath = "//field[@name='discount' or @name='price_unit']"
-                # xpath2 = "//field[@name='purchase_price']"
+                xpath = "//field[@name='discount' or @name='price_unit' or @name='tax_id']"
+                xpath2 = "//field[@name='product_packaging']"
                 res_line_form = res['fields']['order_line']['views']['form']
                 res_line_tree = res['fields']['order_line']['views']['tree']
                 self.modifier_set_readonly(res=res_line_form, expression=xpath)
-                # self.modifier_set_invisible(res=res_line_form, expression=xpath2)
                 self.modifier_set_readonly(res=res_line_tree, expression=xpath)
+                # make invisible
+                self.modifier_set_invisible(res=res_line_form, expression=xpath2)
         return res
