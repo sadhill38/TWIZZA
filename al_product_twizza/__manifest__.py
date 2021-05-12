@@ -7,13 +7,13 @@
 #
 ###################################################################################
 {
-    'name': "@lahlou : Sale Twizza",
+    'name': "@lahlou : Product Twizza",
 
     'summary': """
-        Customisations in sale module for twizza.""",
+        Customisations in Product module for twizza.""",
 
     'description': """
-        Customisations in sale module for twizza.
+        Customisations in Product module for twizza.
     """,
 
     'author': "Ahmed LAHLOU, @lahlou",
@@ -22,22 +22,20 @@
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full listhr
-    'category': 'sale',
+    'category': 'product',
     'version': '13.0.0.1',
 
     'depends': [
-        'sale',
-        'account',
-        'sale_stock',
-        'sale_margin',
-        'sales_team',
+        'base',
+        'product',
+        'stock_account',
     ],
 
     # always loaded
     'data': [
         'security/security.xml',
         # 'security/ir.model.access.csv',
-        'views/sale_views.xml',
+        'views/product_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
