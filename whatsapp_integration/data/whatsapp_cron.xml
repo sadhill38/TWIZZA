@@ -8,6 +8,7 @@
             <field name="code">model._cron_kill_chromedriver()</field>
             <field name="interval_type">hours</field>
             <field name="numbercall">-1</field>
+
         </record>
     </data>
 </odoo>
