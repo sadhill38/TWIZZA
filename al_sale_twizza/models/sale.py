@@ -37,6 +37,16 @@ class SaleOrderInherit(models.Model):
 
     days_to_confirm = fields.Float(string='Days to confirm', compute='_compute_days_to', store=True)
     days_to_invoice = fields.Float(string='Days to invoice', compute='_compute_days_to', store=True)
+    margin_rate = fields.Float(string='Margin Rate', compute='_compute_margin_rate')
+
+    @api.depends('margin', 'order_line', 'order_line.total_purchase_price')
+    def _compute_margin_rate(self):
+        for rec in self:
+            total_cost = sum(rec.order_line.mapped('total_purchase_price'))
+            if total_cost != 0.0:
+                rec.margin_rate = (rec.margin / total_cost) * 100
+            else:
+                rec.margin_rate = 100
 
     @api.depends('create_date', 'date_order', 'state', 'invoice_ids', 'invoice_ids.invoice_date')
     def _compute_days_to(self):
