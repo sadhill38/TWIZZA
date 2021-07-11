@@ -38,6 +38,7 @@
         # 'security/security.xml',
         # 'security/ir.model.access.csv',
         'views/purchase_views.xml',
+        'views/sale_views.xml',
         'views/stock_views.xml',
     ],
     # only loaded in demonstration mode
