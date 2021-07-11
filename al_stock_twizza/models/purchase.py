@@ -14,7 +14,9 @@ class PurchaseOrderLineInherit(models.Model):
         for rec in self:
             if rec.is_sample:
                 rec.price_unit = 0.0
+                rec.name += _(" (Sample)")
             else:
+                rec._product_id_change()
                 rec._onchange_quantity()
 
     @api.onchange('product_qty', 'product_uom')
