@@ -24,6 +24,7 @@ class SaleOrderLineInherit(models.Model):
         for rec in self:
             if rec.is_sample:
                 rec.price_unit = 0.0
+                rec.purchase_price = 0.0
                 rec.name += _(" (Sample)")
                 # rec.product_uom = self._get_reference_uom(uom=rec.product_uom).id,
             else:

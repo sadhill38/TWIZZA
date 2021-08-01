@@ -30,6 +30,8 @@
         # 'product',
         'stock_account',
         'sale_stock',
+        'sale_margin',
+        'stock',
         'purchase_stock',
     ],
 
@@ -40,6 +42,9 @@
         'views/purchase_views.xml',
         'views/sale_views.xml',
         'views/stock_views.xml',
+        # report
+        'report/stockpicking_operations.xml',
+        'report/deliveryslip.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
