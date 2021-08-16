@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--  purchase.order : is_sample to order_line  -->
+    <record id="purchase_order_tree_inherit_samples" model="ir.ui.view">
+        <field name="name">purchase.order.tree.inherit.samples</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase_stock.purchase_order_view_form_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="before">
+                <field name="is_sample"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form//field[@name='price_unit']" position="before">
+                <field name="is_sample"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
