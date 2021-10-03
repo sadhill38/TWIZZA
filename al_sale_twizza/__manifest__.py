@@ -26,18 +26,21 @@
     'version': '13.0.0.1',
 
     'depends': [
-        'sale',
         'account',
-        'sale_stock',
         'sale_margin',
+        'sale_stock',
         'sales_team',
+        'contacts',
     ],
 
     # always loaded
     'data': [
         'security/security.xml',
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
+        # views
         'views/sale_views.xml',
+        'views/res_partner_views.xml',
+        'views/menuitems.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
