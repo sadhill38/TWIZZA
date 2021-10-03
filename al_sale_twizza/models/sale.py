@@ -29,7 +29,7 @@ class SaleOrderLineInherit(models.Model):
     def _compute_cost(self):
         for rec in self:
             total_cost = rec.product_uom_qty * rec.purchase_price
-            rec.total_purchase_price = rec.order_id.currency_id.round(total_cost)
+            rec.total_purchase_price = rec.order_id.currency_id.round(total_cost) if rec.order_id.currency_id else total_cost
 
 
 class SaleOrderInherit(models.Model):
@@ -37,7 +37,7 @@ class SaleOrderInherit(models.Model):
 
     days_to_confirm = fields.Float(string='Days to confirm', compute='_compute_days_to', store=True)
     days_to_invoice = fields.Float(string='Days to invoice', compute='_compute_days_to', store=True)
-    margin_rate = fields.Float(string='Margin Rate', compute='_compute_margin_rate')
+    margin_rate = fields.Float(string='Margin Rate', compute='_compute_margin_rate', store=True)
 
     @api.depends('margin', 'order_line', 'order_line.total_purchase_price')
     def _compute_margin_rate(self):
