@@ -31,6 +31,23 @@ class SaleOrderLineInherit(models.Model):
             total_cost = rec.product_uom_qty * rec.purchase_price
             rec.total_purchase_price = rec.order_id.currency_id.round(total_cost) if rec.order_id.currency_id else total_cost
 
+    @api.depends('order_id.state')
+    def _compute_invoice_status(self):
+        """ Rollback on working case. """
+        super(SaleOrderLineInherit, self)._compute_invoice_status()
+        for line in self:
+            # We handle the following specific situation: a physical product is partially delivered,
+            # but we would like to set its invoice status to 'Fully Invoiced'. The use case is for
+            # products sold by weight, where the delivered quantity rarely matches exactly the
+            # quantity ordered.
+            if line.order_id.state == 'done' \
+                    and line.invoice_status == 'no' \
+                    and line.product_id.type in ['consu', 'product'] \
+                    and line.product_id.invoice_policy == 'delivery' \
+                    and line.move_ids \
+                    and all(move.state in ['done', 'cancel'] for move in line.move_ids):
+                line.invoice_status = 'invoiced'
+
 
 class SaleOrderInherit(models.Model):
     _inherit = 'sale.order'
