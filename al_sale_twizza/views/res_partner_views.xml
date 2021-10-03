@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="al_view_res_partner_inherit_params" model="ir.ui.view">
+        <field name="name">al.view.res.partner.inherit.params</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <!--       add delivery mode      -->
+            <xpath expr="//group[@name='sale']" position="inside">
+                <field name="delivery_mode_id" widget="selection"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!--  action to open delivery.mode recordset  -->
+    <record id="al_delivery_mode_window_action" model="ir.actions.act_window">
+        <field name="name">Delivery Mode</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">delivery.mode</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

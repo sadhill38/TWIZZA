@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="al_menu_delivery_mode"
+              name="Delivery Modes"
+              parent="contacts.res_partner_menu_config"
+              action="al_sale_twizza.al_delivery_mode_window_action"
+              groups="sales_team.group_sale_manager"
+              sequence="10"/>
+
+</odoo>
