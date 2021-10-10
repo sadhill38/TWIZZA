@@ -6,6 +6,13 @@
               parent="contacts.res_partner_menu_config"
               action="al_sale_twizza.al_delivery_mode_window_action"
               groups="sales_team.group_sale_manager"
-              sequence="10"/>
+              sequence="7"/>
+
+    <menuitem id="al_menu_payment_mode"
+              name="Payment Modes"
+              parent="contacts.res_partner_menu_config"
+              action="al_sale_twizza.al_payment_mode_window_action"
+              groups="sales_team.group_sale_manager"
+              sequence="8"/>
 
 </odoo>

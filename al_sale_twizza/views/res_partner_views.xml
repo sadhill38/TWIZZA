@@ -9,6 +9,7 @@
             <!--       add delivery mode      -->
             <xpath expr="//group[@name='sale']" position="inside">
                 <field name="delivery_mode_id" widget="selection"/>
+                <field name="payment_mode_id" widget="selection"/>
             </xpath>
 
         </field>
@@ -19,6 +20,14 @@
         <field name="name">Delivery Mode</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">delivery.mode</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--  action to open delivery.mode recordset  -->
+    <record id="al_payment_mode_window_action" model="ir.actions.act_window">
+        <field name="name">Payment Mode</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">payment.mode</field>
         <field name="view_mode">tree,form</field>
     </record>
 

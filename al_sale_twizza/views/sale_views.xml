@@ -68,6 +68,7 @@
                 <!--       add delivery mode         -->
                 <xpath expr="//field[@name='payment_term_id']" position="after">
                     <field name="delivery_mode_id" widget="selection"/>
+                    <field name="payment_mode_id" widget="selection"/>
                 </xpath>
             </field>
         </record>
