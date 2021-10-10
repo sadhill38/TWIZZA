@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e-20210111\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-10 22:42+0000\n"
-"PO-Revision-Date: 2021-10-10 22:42+0000\n"
+"POT-Creation-Date: 2021-10-10 23:38+0000\n"
+"PO-Revision-Date: 2021-10-10 23:38+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -33,12 +33,14 @@ msgstr "Création de factures depuis les ventes"
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode__create_uid
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__create_uid
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type__create_uid
 msgid "Created by"
 msgstr "Créé par"
 
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode__create_date
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__create_date
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type__create_date
 msgid "Created on"
 msgstr "Créé le"
 
@@ -59,7 +61,7 @@ msgstr "Jours pour facturer"
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_users__delivery_mode_id
 #: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order__delivery_mode_id
 msgid "Delivery Mode"
-msgstr "Mode de Livraison"
+msgstr "Mode de livraison"
 
 #. module: al_sale_twizza
 #: model:ir.ui.menu,name:al_sale_twizza.al_menu_delivery_mode
@@ -69,30 +71,41 @@ msgstr "Modes de livraison"
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode__display_name
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__display_name
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type__display_name
 msgid "Display Name"
 msgstr "Afficher Nom"
 
 #. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner__home_consumption
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_users__home_consumption
+msgid "Home Consumption"
+msgstr "Consommation à domicile"
+
+#. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode__id
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__id
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type__id
 msgid "ID"
 msgstr ""
 
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode____last_update
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode____last_update
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type____last_update
 msgid "Last Modified on"
 msgstr "Dernière modification le"
 
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode__write_uid
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__write_uid
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type__write_uid
 msgid "Last Updated by"
 msgstr "Dernière mise à jour par"
 
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode__write_date
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__write_date
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type__write_date
 msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
@@ -109,8 +122,24 @@ msgstr "Taux de marge"
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode__name
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__name
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type__name
 msgid "Name"
 msgstr "Nom"
+
+#. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner__out_home_consumption
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_users__out_home_consumption
+msgid "Out-Of-Home Consumption"
+msgstr "Restauration hors domicile (RHD)"
+
+#. module: al_sale_twizza
+#: model:ir.actions.act_window,name:al_sale_twizza.al_partner_type_window_action
+#: model:ir.model,name:al_sale_twizza.model_res_partner_type
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner__partner_type_id
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_users__partner_type_id
+#: model:ir.ui.menu,name:al_sale_twizza.al_menu_partner_type
+msgid "Partner Type"
+msgstr "Type de partenaire"
 
 #. module: al_sale_twizza
 #: model:ir.actions.act_window,name:al_sale_twizza.al_payment_mode_window_action
@@ -119,7 +148,7 @@ msgstr "Nom"
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_users__payment_mode_id
 #: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order__payment_mode_id
 msgid "Payment Mode"
-msgstr "Mode de Paiement"
+msgstr "Mode de paiement"
 
 #. module: al_sale_twizza
 #: model:ir.ui.menu,name:al_sale_twizza.al_menu_payment_mode

@@ -10,6 +10,9 @@
             <xpath expr="//group[@name='sale']" position="inside">
                 <field name="delivery_mode_id" widget="selection"/>
                 <field name="payment_mode_id" widget="selection"/>
+                <field name="partner_type_id" widget="selection"/>
+                <field name="home_consumption" widget="boolean"/>
+                <field name="out_home_consumption" widget="boolean"/>
             </xpath>
 
         </field>
@@ -23,11 +26,19 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <!--  action to open delivery.mode recordset  -->
+    <!--  action to open Payment.mode recordset  -->
     <record id="al_payment_mode_window_action" model="ir.actions.act_window">
         <field name="name">Payment Mode</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">payment.mode</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--  action to open res.partner.type recordset  -->
+    <record id="al_partner_type_window_action" model="ir.actions.act_window">
+        <field name="name">Partner Type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner.type</field>
         <field name="view_mode">tree,form</field>
     </record>
 
