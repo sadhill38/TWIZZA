@@ -56,11 +56,13 @@ class SaleOrderInherit(models.Model):
     days_to_invoice = fields.Float(string='Days to invoice', compute='_compute_days_to', store=True)
     margin_rate = fields.Float(string='Margin Rate', compute='_compute_margin_rate', store=True)
     delivery_mode_id = fields.Many2one("delivery.mode", string="Delivery Mode")
+    payment_mode_id = fields.Many2one("payment.mode", string="Payment Mode")
 
     @api.onchange('partner_id')
     def onchange_partner_id(self):
         self.update({
             'delivery_mode_id': self.partner_id.delivery_mode_id.id or False,
+            'payment_mode_id': self.partner_id.payment_mode_id.id or False,
         })
         return super(SaleOrderInherit, self).onchange_partner_id()
 

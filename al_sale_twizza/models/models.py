@@ -6,3 +6,10 @@ class DeliveryMode(models.Model):
     _description = 'Delivery Mode'
 
     name = fields.Char(string="Name", required=True)
+
+
+class PaymentMode(models.Model):
+    _name = 'payment.mode'
+    _description = 'Payment Mode'
+
+    name = fields.Char(string="Name", required=True)
