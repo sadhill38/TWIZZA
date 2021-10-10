@@ -29,7 +29,24 @@ class SaleOrderLineInherit(models.Model):
     def _compute_cost(self):
         for rec in self:
             total_cost = rec.product_uom_qty * rec.purchase_price
-            rec.total_purchase_price = rec.order_id.currency_id.round(total_cost)
+            rec.total_purchase_price = rec.order_id.currency_id.round(total_cost) if rec.order_id.currency_id else total_cost
+
+    @api.depends('order_id.state')
+    def _compute_invoice_status(self):
+        """ Fixed : Rollback on working case. """
+        super(SaleOrderLineInherit, self)._compute_invoice_status()
+        for line in self:
+            # We handle the following specific situation: a physical product is partially delivered,
+            # but we would like to set its invoice status to 'Fully Invoiced'. The use case is for
+            # products sold by weight, where the delivered quantity rarely matches exactly the
+            # quantity ordered.
+            if line.order_id.state == 'done' \
+                    and line.invoice_status == 'no' \
+                    and line.product_id.type in ['consu', 'product'] \
+                    and line.product_id.invoice_policy == 'delivery' \
+                    and line.move_ids \
+                    and all(move.state in ['done', 'cancel'] for move in line.move_ids):
+                line.invoice_status = 'invoiced'
 
 
 class SaleOrderInherit(models.Model):
@@ -37,7 +54,17 @@ class SaleOrderInherit(models.Model):
 
     days_to_confirm = fields.Float(string='Days to confirm', compute='_compute_days_to', store=True)
     days_to_invoice = fields.Float(string='Days to invoice', compute='_compute_days_to', store=True)
-    margin_rate = fields.Float(string='Margin Rate', compute='_compute_margin_rate')
+    margin_rate = fields.Float(string='Margin Rate', compute='_compute_margin_rate', store=True)
+    delivery_mode_id = fields.Many2one("delivery.mode", string="Delivery Mode")
+    payment_mode_id = fields.Many2one("payment.mode", string="Payment Mode")
+
+    @api.onchange('partner_id')
+    def onchange_partner_id(self):
+        self.update({
+            'delivery_mode_id': self.partner_id.delivery_mode_id.id or False,
+            'payment_mode_id': self.partner_id.payment_mode_id.id or False,
+        })
+        return super(SaleOrderInherit, self).onchange_partner_id()
 
     @api.depends('margin', 'order_line', 'order_line.total_purchase_price')
     def _compute_margin_rate(self):
