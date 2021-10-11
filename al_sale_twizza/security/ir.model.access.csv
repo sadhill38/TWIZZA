@@ -5,3 +5,6 @@ access_delivery_mode_by_sale_manager,delivery.mode sale.manager,al_sale_twizza.m
 
 access_payment_mode_by_base_user,payment.mode sale.manager,al_sale_twizza.model_payment_mode,base.group_user,1,0,0,0
 access_payment_mode_by_sale_manager,payment.mode sale.manager,al_sale_twizza.model_payment_mode,sales_team.group_sale_manager,1,1,1,1
+
+access_partner_type_by_base_user,res.partner.type sale.manager,al_sale_twizza.model_res_partner_type,base.group_user,1,0,0,0
+access_partner_type_by_sale_manager,res.partner.type sale.manager,al_sale_twizza.model_res_partner_type,sales_team.group_sale_manager,1,1,1,1
