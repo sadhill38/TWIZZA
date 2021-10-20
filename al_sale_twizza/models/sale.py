@@ -123,3 +123,9 @@ class SaleOrderInherit(models.Model):
                 # make invisible
                 self.modifier_set_invisible(res=res_line_form, expression=xpath2)
         return res
+
+    def action_cancel(self):
+        for rec in self:
+            if rec.invoice_status == 'invoiced':
+                raise exceptions.ValidationError(_("You can't cancel a totally invoiced sale order."))
+        return super(SaleOrderInherit, self).action_cancel()
