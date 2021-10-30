@@ -30,6 +30,7 @@
         'sale_margin',
         'sale_stock',
         'sales_team',
+        'delivery',
         'contacts',
     ],
 
