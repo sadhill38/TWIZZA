@@ -69,6 +69,18 @@
                 <xpath expr="//field[@name='payment_term_id']" position="after">
                     <field name="delivery_mode_id" widget="selection"/>
                     <field name="payment_mode_id" widget="selection"/>
+                    <field name="carrier_id" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="al_view_order_tree_inherit_twizza" model="ir.ui.view">
+            <field name="name">al.view.order.tree.inherit.twizza</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="carrier_id" optional="show"/>
                 </xpath>
             </field>
         </record>
