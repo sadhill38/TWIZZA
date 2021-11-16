@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e-20210111\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-30 20:02+0000\n"
-"PO-Revision-Date: 2021-10-30 20:02+0000\n"
+"POT-Creation-Date: 2021-11-16 22:17+0000\n"
+"PO-Revision-Date: 2021-11-16 22:17+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgstr "Jours pour facturer"
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_users__delivery_mode_id
 #: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order__delivery_mode_id
 msgid "Delivery Mode"
-msgstr "Mode de livraison"
+msgstr "Mode de Livraison"
 
 #. module: al_sale_twizza
 #: model:ir.ui.menu,name:al_sale_twizza.al_menu_delivery_mode
@@ -130,7 +130,7 @@ msgstr "Nom"
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner__out_home_consumption
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_users__out_home_consumption
 msgid "Out-Of-Home Consumption"
-msgstr "Restauration hors domicile"
+msgstr "Restauration hors domicile (RHD)"
 
 #. module: al_sale_twizza
 #: model:ir.actions.act_window,name:al_sale_twizza.al_partner_type_window_action
@@ -153,12 +153,17 @@ msgstr "Mode de Paiement"
 #. module: al_sale_twizza
 #: model:ir.ui.menu,name:al_sale_twizza.al_menu_payment_mode
 msgid "Payment Modes"
-msgstr "Modes de Paiement"
+msgstr "Modes de paiement"
 
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order_line__product_category_id
 msgid "Product Category"
 msgstr "Catégorie d'article"
+
+#. module: al_sale_twizza
+#: model:res.groups,name:al_sale_twizza.group_access_to_products_from_sales
+msgid "Sales : Access to products"
+msgstr "Ventes : Accès aux articles"
 
 #. module: al_sale_twizza
 #: model:ir.model,name:al_sale_twizza.model_sale_order
