@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem name="statement"
+              id="menu_finance_statement_root"
+              groups="al_account_twizza.group_account_statement_reader"
+              web_icon="account,static/description/icon.png"
+              action="account_followup.action_view_list_customer_statements"
+              sequence="41"/>
+
+    <!--  sales  -->
+    <menuitem name="Invoice"
+              id="menu_sales_invoice_action"
+              parent="sale.sale_order_menu"
+              action="account.action_move_out_invoice_type"
+              groups="al_account_twizza.group_account_invoice_reader,sales_team.group_sale_salesman"
+              sequence="7"/>
+
+    <menuitem name="Credit Notes"
+              id="menu_sales_credit_note_action"
+              parent="sale.sale_order_menu"
+              action="account.action_move_out_refund_type"
+              groups="al_account_twizza.group_account_invoice_reader,sales_team.group_sale_salesman"
+              sequence="8"/>
+
+
+    <!--  purchase  -->
+    <menuitem name="Invoice"
+              id="menu_purchase_invoice_action"
+              parent="purchase.menu_procurement_management"
+              action="account.action_move_in_invoice_type"
+              groups="purchase.group_purchase_user"
+              sequence="7"/>
+
+    <menuitem name="Credit Notes"
+              id="menu_purchase_credit_note_action"
+              parent="purchase.menu_procurement_management"
+              action="account.action_move_in_refund_type"
+              groups="purchase.group_purchase_user"
+              sequence="8"/>
+
+</odoo>

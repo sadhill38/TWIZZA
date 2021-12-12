@@ -4,12 +4,12 @@
 
         <record id="group_create_invoices_from_sales" model="res.groups">
             <field name="name">Create invoices from sales</field>
-            <field name="category_id" ref="base.module_category_hidden"/>
+            <field name="category_id" ref="base.module_category_usability"/>
         </record>
         <!--    sales : access to products    -->
         <record id="group_access_to_products_from_sales" model="res.groups">
             <field name="name">Sales : Access to products</field>
-            <field name="category_id" ref="base.module_category_hidden"/>
+            <field name="category_id" ref="base.module_category_usability"/>
         </record>
 
     </data>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_res_partner_by_group_statement_reader,res.partner group.account.statement.reader,account_followup.model_res_partner,al_account_twizza.group_account_statement_reader,1,0,0,0
+access_res_partner_by_group_statement_manager,res.partner group.account.statement.manager,account_followup.model_res_partner,al_account_twizza.group_account_statement_manager,1,1,1,1
+
+access_account_followup_line_by_group_statement_reader,account_followup.followup.line group.account.statement.reader,account_followup.model_account_followup_followup_line,al_account_twizza.group_account_statement_reader,1,0,0,0

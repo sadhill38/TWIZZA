@@ -2,7 +2,7 @@
 <odoo>
     <record id="group_product_cost_management" model="res.groups">
         <field name="name">Manage Product Cost</field>
-        <field name="category_id" ref="base.module_category_hidden"/>
+        <field name="category_id" ref="base.module_category_usability"/>
     </record>
 
 <!--    <data>-->
