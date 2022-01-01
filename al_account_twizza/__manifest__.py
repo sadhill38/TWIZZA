@@ -27,10 +27,13 @@
     'version': '13.0.0.1',
 
     'depends': [
-        'sale',
-        'purchase',
+        # odoo addons
         'account',
-        'account_followup'
+        'account_followup',
+        'account_reports',
+        'purchase',
+        # twizza addons
+        'al_sale_twizza',
     ],
 
     # always loaded
@@ -39,6 +42,8 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         # views
+        'views/account_views.xml',
+        # menus
         'views/menuitems.xml',
     ],
 
