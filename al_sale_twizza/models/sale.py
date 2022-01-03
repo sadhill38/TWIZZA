@@ -58,6 +58,12 @@ class SaleOrderInherit(models.Model):
     delivery_mode_id = fields.Many2one("delivery.mode", string="Delivery Mode")
     payment_mode_id = fields.Many2one("payment.mode", string="Payment Mode")
 
+    @api.onchange('team_id')
+    def _onchange_team_id(self):
+        self.update({
+            'analytic_account_id': self.team_id.analytic_account_id.id or False
+        })
+
     @api.onchange('partner_id')
     def onchange_partner_id(self):
         self.update({

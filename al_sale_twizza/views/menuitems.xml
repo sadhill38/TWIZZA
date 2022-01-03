@@ -22,4 +22,12 @@
               groups="sales_team.group_sale_manager"
               sequence="8"/>
 
+    <!--  inherit menuitems  -->
+    <record id="sale.menu_product_template_action" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('al_sale_twizza.group_access_to_products_from_sales')])]"/>
+    </record>
+    <record id="sale.menu_products" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('al_sale_twizza.group_access_to_products_from_sales')])]"/>
+    </record>
+
 </odoo>

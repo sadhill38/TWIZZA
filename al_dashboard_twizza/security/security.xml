@@ -23,4 +23,15 @@
         </record>
 
     </data>
+
+    <data noupdate="1">
+
+        <record id="twizza_sales_dashboard_rule_multi_company" model="ir.rule">
+            <field name="name">Twizza Sales Dashboard Multi Company Rule</field>
+            <field name="model_id" ref="model_twizza_sales_report"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        </record>
+
+    </data>
 </odoo>

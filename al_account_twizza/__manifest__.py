@@ -7,13 +7,14 @@
 #
 ###################################################################################
 {
-    'name': "@lahlou : Sale Twizza",
+    'name': "@lahlou : Account Twizza",
 
     'summary': """
-        Customisations in sale module for twizza.""",
+        Customisations in account module for twizza.
+    """,
 
     'description': """
-        Customisations in sale module for twizza.
+        Customisations in account module for twizza.
     """,
 
     'author': "Ahmed LAHLOU, @lahlou",
@@ -22,35 +23,41 @@
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full listhr
-    'category': 'sale',
+    'category': 'account',
     'version': '13.0.0.1',
 
     'depends': [
+        # odoo addons
         'account',
-        'sale_margin',
-        'sale_stock',
-        'sales_team',
-        'delivery',
-        'contacts',
+        'account_followup',
+        'account_reports',
+        'purchase',
+        # twizza addons
+        'al_sale_twizza',
     ],
 
     # always loaded
     'data': [
+        # security
         'security/security.xml',
         'security/ir.model.access.csv',
         # views
-        'views/sale_views.xml',
-        'views/crm_team_views.xml',
-        'views/res_partner_views.xml',
+        'views/account_views.xml',
+        'views/partner_views.xml',
+        # menus
         'views/menuitems.xml',
     ],
+
     # only loaded in demonstration mode
     'demo': [
-        # 'demo/demo.xml',
+
     ],
+
     'qweb': [
         # 'static/src/xml/file.xml',
     ],
+
     'application': True,
+
     'sequence': 2,
 }
