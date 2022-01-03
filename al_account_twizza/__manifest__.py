@@ -43,6 +43,7 @@
         'security/ir.model.access.csv',
         # views
         'views/account_views.xml',
+        'views/partner_views.xml',
         # menus
         'views/menuitems.xml',
     ],
