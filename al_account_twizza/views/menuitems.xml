@@ -22,7 +22,7 @@
               id="menu_sales_invoice_action"
               parent="sale.sale_order_menu"
               action="action_move_out_invoice_type_twizza"
-              groups="al_account_twizza.group_account_invoice_reader,sales_team.group_sale_salesman"
+              groups="al_account_twizza.group_account_invoice_commercial,sales_team.group_sale_salesman"
               sequence="7"/>
 
     <record id="action_move_out_refund_type_twizza" model="ir.actions.act_window">
@@ -38,7 +38,7 @@
               id="menu_sales_credit_note_action"
               parent="sale.sale_order_menu"
               action="action_move_out_refund_type_twizza"
-              groups="al_account_twizza.group_account_invoice_reader,sales_team.group_sale_salesman"
+              groups="al_account_twizza.group_account_invoice_commercial,sales_team.group_sale_salesman"
               sequence="8"/>
 
 
