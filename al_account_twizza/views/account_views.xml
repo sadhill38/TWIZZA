@@ -9,7 +9,13 @@
         <field name="arch" type="xml">
 
             <xpath expr="//header/button[@name='action_post']" position="attributes">
-                <attribute name="groups">account.group_account_invoice,al_sale_twizza.group_create_invoices_from_sales</attribute>
+                <attribute name="groups">account.group_account_invoice,al_account_twizza.group_account_invoice_adv</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_invoice_register_payment']" position="attributes">
+                <attribute name="groups">account.group_account_invoice,al_account_twizza.group_account_invoice_adv</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_reverse']" position="attributes">
+                <attribute name="groups">account.group_account_invoice,al_account_twizza.group_account_invoice_adv</attribute>
             </xpath>
 
         </field>
