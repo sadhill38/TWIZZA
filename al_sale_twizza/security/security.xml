@@ -12,5 +12,11 @@
             <field name="category_id" ref="base.module_category_usability"/>
         </record>
 
+        <!--    group : acces to margin rate and margin    -->
+        <record id="group_sale_margin_access" model="res.groups">
+            <field name="name">Sales : Margin Access</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+        </record>
+
     </data>
 </odoo>
