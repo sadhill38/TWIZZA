@@ -29,22 +29,23 @@
         'base',
         # 'product',
         'stock_account',
-        'sale_stock',
-        'sale_margin',
-        'stock',
-        'purchase_stock',
+        # 'sale_stock',
+        # 'sale_margin',
+        # 'stock',
+        # 'purchase_stock',
     ],
 
     # always loaded
     'data': [
-        # 'security/security.xml',
-        # 'security/ir.model.access.csv',
-        'views/purchase_views.xml',
-        'views/sale_views.xml',
-        'views/stock_views.xml',
-        # report
-        'report/stockpicking_operations.xml',
-        'report/deliveryslip.xml',
+        # security
+        'security/ir.model.access.csv',
+        # # views
+        # 'views/purchase_views.xml',
+        # 'views/sale_views.xml',
+        # 'views/stock_views.xml',
+        # # report
+        # 'report/stockpicking_operations.xml',
+        # 'report/deliveryslip.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
