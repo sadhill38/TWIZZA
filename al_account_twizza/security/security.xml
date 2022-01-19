@@ -24,7 +24,6 @@
         <!--    Account statement Groups    -->
         <record id="group_account_statement_reader" model="res.groups">
             <field name="name">statement Reader</field>
-<!--            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
             <field name="category_id" ref="accounting_statement_category"/>
         </record>
 
@@ -37,21 +36,21 @@
 
     </data>
 
-    <data noupdate="0">
+<!--    <data noupdate="0">-->
 
-        <record id="rule_accounting_statement_see_only_my_customers" model="ir.rule">
-            <field name="name">Accounting Statement : See Only my customers</field>
-            <field ref="base.model_res_partner" name="model_id"/>
-            <field name="domain_force">[('user_id', '=', user.id)]</field>
-            <field name="groups" eval="[(4, ref('group_account_statement_reader'))]"/>
-        </record>
+<!--        <record id="rule_accounting_statement_see_only_my_customers" model="ir.rule">-->
+<!--            <field name="name">Accounting Statement : See Only my customers</field>-->
+<!--            <field ref="account_followup.model_res_partner" name="model_id"/>-->
+<!--            <field name="domain_force">[('user_id', '=', user.id)]</field>-->
+<!--            <field name="groups" eval="[(4, ref('group_account_statement_reader'))]"/>-->
+<!--        </record>-->
 
-        <record id="rule_accounting_statement_no_restriction" model="ir.rule">
-            <field name="name">Accounting Statement : No Restriction</field>
-            <field ref="base.model_res_partner" name="model_id"/>
-            <field name="domain_force">[(1, '=', 1)]</field>
-            <field name="groups" eval="[(4, ref('group_account_statement_manager'))]"/>
-        </record>
+<!--        <record id="rule_accounting_statement_no_restriction" model="ir.rule">-->
+<!--            <field name="name">Accounting Statement : No Restriction</field>-->
+<!--            <field ref="account_followup.model_res_partner" name="model_id"/>-->
+<!--            <field name="domain_force">[(1, '=', 1)]</field>-->
+<!--            <field name="groups" eval="[(4, ref('group_account_statement_manager'))]"/>-->
+<!--        </record>-->
 
-    </data>
+<!--    </data>-->
 </odoo>
