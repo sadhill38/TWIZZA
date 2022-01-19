@@ -12,10 +12,3 @@ class AccountMoveInherit(models.Model):
         if self.env.user.has_group('al_account_twizza.group_account_invoice_adv'):
             self = self.sudo()
         return super(AccountMoveInherit, self).post()
-
-
-
-# class AccountMoveReversalInherit(models.TransientModel):
-#     _inherit = "account.move.reversal"
-#
-#     def reverse_moves(self):
