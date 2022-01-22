@@ -29,7 +29,7 @@
         'base',
         # 'product',
         'stock_account',
-        # 'sale_stock',
+        'sale_stock',
         # 'sale_margin',
         # 'stock',
         # 'purchase_stock',
