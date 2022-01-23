@@ -38,6 +38,14 @@
                 <xpath expr="//header/button[@name='%(sale.action_view_sale_advance_payment_inv)d'][2]" position="attributes">
                     <attribute name="groups">al_sale_twizza.group_create_invoices_from_sales</attribute>
                 </xpath>
+                <!--        Action confirm : add group sale all leads       -->
+                <xpath expr="//header/button[@name='action_confirm'][1]" position="attributes">
+                    <attribute name="groups">sales_team.group_sale_salesman_all_leads</attribute>
+                </xpath>
+                <!--        Action confirm : add group sale all leads       -->
+                <xpath expr="//header/button[@name='action_confirm'][2]" position="attributes">
+                    <attribute name="groups">sales_team.group_sale_salesman_all_leads</attribute>
+                </xpath>
                 <!-- sale.order.line -->
                 <xpath expr="//field[@name='order_line']/form/group/group/field[@name='product_id']" position="attributes">
                     <attribute name="options">{'no_create': True, 'no_open': True}</attribute>
@@ -59,8 +67,8 @@
                     <attribute name="groups">sales_team.group_sale_manager</attribute>
                 </xpath>
                 <xpath expr="//group[hasclass('oe_subtotal_footer')]" position="inside">
-                    <label for="margin_rate" groups="sales_team.group_sale_manager"/>
-                    <div class="oe_right" groups="sales_team.group_sale_manager">
+                    <label for="margin_rate" groups="al_sale_twizza.group_sale_margin_access"/>
+                    <div class="oe_right" groups="al_sale_twizza.group_sale_margin_access">
                         <field class="oe_inline" name="margin_rate"/>
                         <span> %</span>
                     </div>

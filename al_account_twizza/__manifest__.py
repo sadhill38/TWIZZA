@@ -7,13 +7,14 @@
 #
 ###################################################################################
 {
-    'name': "@lahlou : Stock Twizza",
+    'name': "@lahlou : Account Twizza",
 
     'summary': """
-        Customisations in Stock module for twizza.""",
+        Customisations in account module for twizza.
+    """,
 
     'description': """
-        Customisations in Stock module for twizza.
+        Customisations in account module for twizza.
     """,
 
     'author': "Ahmed LAHLOU, @lahlou",
@@ -22,38 +23,41 @@
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full listhr
-    'category': 'stock',
+    'category': 'account',
     'version': '13.0.0.1',
 
     'depends': [
-        'base',
-        # 'product',
-        'stock_account',
-        'sale_stock',
-        # 'sale_margin',
-        # 'stock',
-        # 'purchase_stock',
+        # odoo addons
+        'account',
+        'account_followup',
+        'account_reports',
+        'purchase',
+        # twizza addons
+        'al_sale_twizza',
     ],
 
     # always loaded
     'data': [
         # security
+        'security/security.xml',
         'security/ir.model.access.csv',
-        # # views
-        # 'views/purchase_views.xml',
-        # 'views/sale_views.xml',
-        # 'views/stock_views.xml',
-        # # report
-        # 'report/stockpicking_operations.xml',
-        # 'report/deliveryslip.xml',
+        # views
+        'views/account_views.xml',
+        'views/partner_views.xml',
+        # menus
+        'views/menuitems.xml',
     ],
+
     # only loaded in demonstration mode
     'demo': [
-        # 'demo/demo.xml',
+
     ],
+
     'qweb': [
         # 'static/src/xml/file.xml',
     ],
+
     'application': True,
+
     'sequence': 2,
 }

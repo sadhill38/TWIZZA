@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="al_view_move_form_inherit_twizza" model="ir.ui.view">
+        <field name="name">al.view.move.form.inherit.twizza</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//header/button[@name='action_post']" position="attributes">
+                <attribute name="groups">account.group_account_invoice,al_account_twizza.group_account_invoice_adv</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_invoice_register_payment']" position="attributes">
+                <attribute name="groups">account.group_account_invoice,al_account_twizza.group_account_invoice_adv</attribute>
+            </xpath>
+            <xpath expr="//header/button[@name='action_reverse']" position="attributes">
+                <attribute name="groups">account.group_account_invoice,al_account_twizza.group_account_invoice_adv</attribute>
+            </xpath>
+
+            <!--     hide access to accounting data from invoice       -->
+            <xpath expr="//field[@name='invoice_payment_term_id']" position="attributes">
+                <attribute name="options">{'no_open': True, 'no_create': True}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/form/sheet/group/field[@name='account_id']" position="attributes">
+                <attribute name="options">{'no_open': True, 'no_create': True}</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
