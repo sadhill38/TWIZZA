@@ -11,8 +11,11 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="account.view_partner_property_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//group[@name='fiscal_information']" position="attributes">
-                <attribute name="groups">al_account_twizza.group_account_invoice_commercial,account.group_account_user</attribute>
+<!--            <xpath expr="//group[@name='fiscal_information']" position="attributes">-->
+<!--                <attribute name="groups">al_account_twizza.group_account_invoice_commercial,account.group_account_user</attribute>-->
+<!--            </xpath>-->
+            <xpath expr="//group[@name='accounting_entries']" position="attributes">
+                <attribute name="groups">al_account_twizza.group_account_invoice_adv</attribute>
             </xpath>
         </field>
     </record>
