@@ -32,6 +32,7 @@
         'account_followup',
         'account_reports',
         'purchase',
+        'stock',
         # twizza addons
         'al_sale_twizza',
     ],
