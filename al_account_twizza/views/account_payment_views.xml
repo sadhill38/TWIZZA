@@ -10,7 +10,7 @@
 
             <xpath expr="//group/group" position="after">
                 <group>
-                    <field name="user_ids" widget="many2many_tags"/>
+                    <field name="user_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"/>
                 </group>
             </xpath>
 
