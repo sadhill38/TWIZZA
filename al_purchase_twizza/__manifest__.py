@@ -26,13 +26,17 @@
     'version': '13.0.0.1',
 
     'depends': [
-        'purchase',
+        'purchase_stock',
+        'stock_account',
+        'sale_purchase',
+        'al_sale_twizza',
     ],
 
     # always loaded
     'data': [
         # # views
         'views/res_partner_views.xml',
+        'views/stock_picking_type.xml',
     ],
 
     'application': True,
