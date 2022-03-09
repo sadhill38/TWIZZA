@@ -32,8 +32,11 @@
 
     # always loaded
     'data': [
+        # security
+        # data
+        'data/ir_cron_data.xml',
         # Views
-
+        'views/res_config_settings.xml',
     ],
 
     'application': True,
