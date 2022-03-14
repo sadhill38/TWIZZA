@@ -35,9 +35,9 @@ class ResConfigSettings(models.TransientModel):
                 local_path = path.join(db_dir, db_file)
                 remote_path = path.join(ftp_dir, db_file)
                 server.put(local_path, remote_path)
-                _logger.info('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+                _logger.info('--------------------------------')
                 _logger.info('File sent to FTP server')
                 _logger.info(local_path)
-                _logger.info('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+                _logger.info('--------------------------------')
                 server.close()
         return True
