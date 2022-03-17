@@ -1,0 +1,3 @@
+# needed for server_twizza module
+paramiko==2.7.2
+pysftp==0.2.9
