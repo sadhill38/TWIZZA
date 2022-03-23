@@ -37,7 +37,7 @@
         <field name="view_id" ref="account.view_invoice_tree"/>
         <field name="search_view_id" ref="account.view_account_invoice_filter"/>
         <field name="domain">[('type', '=', 'out_invoice')]</field>
-        <field name="context">{'default_type': 'out_invoice', 'create': 0}</field>
+        <field name="context">{'default_type': 'out_invoice', 'create': 0, 'edit': 0}</field>
     </record>
     <menuitem name="Invoice"
               id="menu_sales_invoice_action"
@@ -53,7 +53,7 @@
         <field name="view_id" ref="account.view_invoice_tree"/>
         <field name="search_view_id" ref="account.view_account_invoice_filter"/>
         <field name="domain">[('type', '=', 'out_refund')]</field>
-        <field name="context">{'default_type': 'out_refund', 'create': 0}</field>
+        <field name="context">{'default_type': 'out_refund', 'create': 0, 'edit': 0}</field>
     </record>
     <menuitem name="Credit Notes"
               id="menu_sales_credit_note_action"
@@ -71,7 +71,7 @@
         <field name="view_id" ref="account.view_invoice_tree"/>
         <field name="search_view_id" ref="account.view_account_invoice_filter"/>
         <field name="domain">[('type', '=', 'in_invoice')]</field>
-        <field name="context">{'default_type': 'in_invoice', 'create': 0}</field>
+        <field name="context">{'default_type': 'in_invoice', 'create': 0, 'edit': 0}</field>
     </record>
     <menuitem name="Invoice"
               id="menu_purchase_invoice_action"
@@ -87,7 +87,7 @@
         <field name="view_id" ref="account.view_invoice_tree"/>
         <field name="search_view_id" ref="account.view_account_invoice_filter"/>
         <field name="domain">[('type', '=', 'in_refund')]</field>
-        <field name="context">{'default_type': 'in_refund', 'create': 0}</field>
+        <field name="context">{'default_type': 'in_refund', 'create': 0, 'edit': 0}</field>
     </record>
     <menuitem name="Credit Notes"
               id="menu_purchase_credit_note_action"
