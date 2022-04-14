@@ -17,5 +17,24 @@
             </field>
         </record>
 
+
+        <!-- Form View : product.product -->
+        <record id="al_product_product_form_view_inherit_volume" model="ir.ui.view">
+            <field name="name">al.product.product.form_view.inherit.volume</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+
+                <div name="volume" position="after">
+                    <label for="unit_volume" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}"/>
+                    <div class="o_row" name="unit_volume" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}">
+                        <field name="unit_volume" string="Unit Volume"/>
+                        <span>L</span>
+                    </div>
+                </div>
+
+            </field>
+        </record>
+
     </data>
 </odoo>
