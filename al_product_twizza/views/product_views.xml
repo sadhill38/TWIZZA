@@ -18,9 +18,9 @@
         </record>
 
 
-        <!-- Form View : product.product -->
-        <record id="al_product_product_form_view_inherit_volume" model="ir.ui.view">
-            <field name="name">al.product.product.form_view.inherit.volume</field>
+        <!-- Normal Form View : product.product -->
+        <record id="al_product_normal_form_view_inherit_volume" model="ir.ui.view">
+            <field name="name">al.product.normal.form_view.inherit.volume</field>
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_normal_form_view"/>
             <field name="arch" type="xml">
@@ -32,6 +32,24 @@
                         <span>L</span>
                     </div>
                 </div>
+
+            </field>
+        </record>
+
+        <!-- Easy Form View : product.product -->
+        <record id="al_product_variant_easy_edit_view_volume" model="ir.ui.view">
+            <field name="name">al.product.variant.easy.edit.view.volume</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//group[@name='weight']" position="inside">
+                    <label for="unit_volume"/>
+                    <div class="o_row">
+                        <field name="unit_volume"/>
+                        <span>L</span>
+                    </div>
+                </xpath>
 
             </field>
         </record>
