@@ -6,11 +6,7 @@ class SaleOrder(models.Model):
 
     def action_view_invoice(self):
         action = super(SaleOrder, self).action_view_invoice()
-        cannot_create_or_edit = (
-            self.env.user.has_group('al_account_twizza.group_account_invoice_commercial') and not
-            self.env.user.has_group('al_account_twizza.group_account_invoice_adv')
-        )
-        if cannot_create_or_edit:
+        if not self.env.user.has_group('account.group_account_manager'):
             action['context'].update({
                 'create': False,
                 'edit': False
