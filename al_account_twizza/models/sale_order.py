@@ -1,11 +1,11 @@
 from odoo import models
 
 
-class ResPartnerInherit(models.Model):
-    _inherit = "res.partner"
+class SaleOrder(models.Model):
+    _inherit = "sale.order"
 
-    def action_view_partner_invoices(self):
-        action = super(ResPartnerInherit, self).action_view_partner_invoices()
+    def action_view_invoice(self):
+        action = super(SaleOrder, self).action_view_invoice()
         if not self.env.user.has_group('account.group_account_manager'):
             action['context'].update({
                 'create': False,
