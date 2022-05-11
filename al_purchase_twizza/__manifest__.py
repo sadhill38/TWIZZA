@@ -34,7 +34,9 @@
 
     # always loaded
     'data': [
-        # # views
+        # Security
+        'security/ir.model.access.csv',
+        # Views
         'views/res_partner_views.xml',
         'views/stock_picking_type.xml',
     ],

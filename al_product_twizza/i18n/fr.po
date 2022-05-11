@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0+e-20220401\n"
+"Project-Id-Version: Odoo Server 13.0+e-20220425\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-15 12:10+0000\n"
-"PO-Revision-Date: 2022-04-15 12:10+0000\n"
+"POT-Creation-Date: 2022-05-11 15:15+0000\n"
+"PO-Revision-Date: 2022-05-11 15:15+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,11 +19,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:al_product_twizza.field_product_pricelist__company_id
 msgid "Company"
 msgstr "Société"
-
-#. module: al_product_twizza
-#: model:res.groups,name:al_product_twizza.group_product_cost_management
-msgid "Manage Product Cost"
-msgstr "Gérer le coût produit"
 
 #. module: al_product_twizza
 #: model:ir.model,name:al_product_twizza.model_product_pricelist
@@ -39,6 +34,16 @@ msgstr "Article"
 #: model:ir.model,name:al_product_twizza.model_product_template
 msgid "Product Template"
 msgstr "Modèle d'article"
+
+#. module: al_product_twizza
+#: model:res.groups,name:al_product_twizza.group_product_admin
+msgid "Products : Administration"
+msgstr "Articles : Administration"
+
+#. module: al_product_twizza
+#: model:res.groups,name:al_product_twizza.group_product_cost_management
+msgid "Products : Cost Management"
+msgstr "Articles : Gestion des coûts"
 
 #. module: al_product_twizza
 #: model:ir.model.fields,field_description:al_product_twizza.field_product_product__unit_volume
