@@ -28,9 +28,10 @@
 
     'depends': [
         # odoo addons
-        'account',
+        'account_accountant',
         'account_followup',
         'account_reports',
+        'account_intrastat',
         'purchase',
         'stock',
         # twizza addons
