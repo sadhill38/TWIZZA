@@ -33,8 +33,10 @@
 
     # always loaded
     'data': [
+        # Security
         'security/security.xml',
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
+        # Views
         'views/product_views.xml',
     ],
     # only loaded in demonstration mode
