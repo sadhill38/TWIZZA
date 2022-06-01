@@ -37,5 +37,8 @@
     <record id="sale.menu_sale_order" model="ir.ui.menu">
         <field name="groups_id" eval="[(4, ref('group_sale_reader'))]"/>
     </record>
+    <record id="sale.res_partner_menu" model="ir.ui.menu">
+        <field name="groups_id" eval="[(4, ref('group_sale_reader'))]"/>
+    </record>
 
 </odoo>
