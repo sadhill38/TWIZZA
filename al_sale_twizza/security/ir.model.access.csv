@@ -8,3 +8,11 @@ access_payment_mode_by_sale_manager,payment.mode sale.manager,al_sale_twizza.mod
 
 access_partner_type_by_base_user,res.partner.type sale.manager,al_sale_twizza.model_res_partner_type,base.group_user,1,0,0,0
 access_partner_type_by_sale_manager,res.partner.type sale.manager,al_sale_twizza.model_res_partner_type,sales_team.group_sale_manager,1,1,1,1
+
+access_sale_order_by_sale_reader,sale.order sale.reader,sale.model_sale_order,group_sale_reader,1,0,0,0
+access_sale_order_line_by_sale_reader,sale.order.line sale.reader,sale.model_sale_order_line,group_sale_reader,1,0,0,0
+access_product.attribute.custom.value_by_sale_reader,product.attribute.custom.value sale.reader,sale.model_product_attribute_custom_value,group_sale_reader,1,0,0,0
+
+access_stock_picking_by_sale_reader,stock.picking sale.reader,stock.model_stock_picking,group_sale_reader,1,0,0,0
+access_stock_move_by_sale_reader,stock.move sale.reader,stock.model_stock_move,group_sale_reader,1,0,0,0
+access_stock_warehouse_by_sale_reader,stock.warehouse sale.reader,stock.model_stock_warehouse,group_sale_reader,1,0,0,0
