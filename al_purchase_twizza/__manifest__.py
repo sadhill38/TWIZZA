@@ -35,10 +35,13 @@
     # always loaded
     'data': [
         # Security
+        'security/security.xml',
         'security/ir.model.access.csv',
         # Views
         'views/res_partner_views.xml',
         'views/stock_picking_type.xml',
+        # menuitems
+        'views/menuitems.xml',
     ],
 
     'application': True,
