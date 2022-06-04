@@ -38,14 +38,10 @@
     # always loaded
     'data': [
         # security
+        'security/security.xml',
         'security/ir.model.access.csv',
-        # # views
-        # 'views/purchase_views.xml',
-        # 'views/sale_views.xml',
-        # 'views/stock_views.xml',
-        # # report
-        # 'report/stockpicking_operations.xml',
-        # 'report/deliveryslip.xml',
+        # menus
+        'views/menuitems.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0+e-20210111\n"
+"Project-Id-Version: Odoo Server 13.0+e-20220531\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-28 10:57+0000\n"
-"PO-Revision-Date: 2021-11-28 10:57+0000\n"
+"POT-Creation-Date: 2022-06-04 08:58+0000\n"
+"PO-Revision-Date: 2022-06-04 08:58+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -166,9 +166,19 @@ msgid "Product Category"
 msgstr "Catégorie d'article"
 
 #. module: al_sale_twizza
+#: model:res.groups,name:al_sale_twizza.group_sale_reader
+msgid "Reader"
+msgstr "Lecteur"
+
+#. module: al_sale_twizza
 #: model:res.groups,name:al_sale_twizza.group_access_to_products_from_sales
 msgid "Sales : Access to products"
 msgstr "Ventes : Accès aux articles"
+
+#. module: al_sale_twizza
+#: model:res.groups,name:al_sale_twizza.group_sale_margin_access
+msgid "Sales : Margin Access"
+msgstr "Ventes : Accès à la marge"
 
 #. module: al_sale_twizza
 #: model:ir.model,name:al_sale_twizza.model_sale_order
@@ -193,7 +203,8 @@ msgstr "Sélectionnez la catégorie de l'article actuel"
 #. module: al_sale_twizza
 #: model:ir.model.fields,help:al_sale_twizza.field_crm_team__analytic_account_id
 msgid "The analytic account to use by default in a sales order."
-msgstr "Le compte analytique à utiliser par défaut dans les commandes de vente."
+msgstr ""
+"Le compte analytique à utiliser par défaut dans les commandes de vente."
 
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order_line__total_purchase_price
