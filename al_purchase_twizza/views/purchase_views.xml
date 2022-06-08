@@ -9,7 +9,7 @@
         <field name="arch" type="xml">
 
             <header position="attributes">
-                <attribute name="groups" eval="sales_team">purchase.group_purchase_user</attribute>
+                <attribute name="groups">purchase.group_purchase_user</attribute>
             </header>
 
         </field>
