@@ -28,23 +28,23 @@
 # #     )
 #
 # # ####### STEP 2
-# fix_product_template_translation = models.execute_kw(
+# fix_en_translation = models.execute_kw(
 #     db, uid, password, 'ir.translation', 'search_read', [[
 #         ['name', '=', 'product.template,name'],
 #         ['lang', '=', 'en_US'],
 #     ]], {'fields': ['res_id', 'src', 'value']}
 # )
 #
-# for en_trans in fix_product_template_translation:
+# for en_trans in fix_en_translation:
 #     print(en_trans)
 #     # todo : uncomment this to execute
-#     models.execute_kw(
-#         db, uid, password, 'ir.translation', 'write', [[en_trans['id']], {
-#             'value': en_trans['src'],
-#         }]
-#     )
+#     # models.execute_kw(
+#     #     db, uid, password, 'ir.translation', 'write', [[en_trans['id']], {
+#     #         'value': en_trans['src'],
+#     #     }]
+#     # )
 #
 # print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 # # print(len(copy_products_translation))
-# print(len(fix_product_template_translation))
+# print(len(fix_en_translation))
 # print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
