@@ -1,5 +1,20 @@
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<odoo>-->
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_inventory_tree_inherit_twizza" model="ir.ui.view">
+        <field name="name">view.inventory.tree.inherit.twizza</field>
+        <field name="model">stock.inventory</field>
+        <field name="inherit_id" ref="stock.view_inventory_tree"/>
+        <field name="arch" type="xml">
+
+            <field name="product_ids" position="after">
+                <field name="product_line_ids" widget="many2many_tags" optional="hide"/>
+            </field>
+
+        </field>
+    </record>
+
+
 <!--    &lt;!&ndash; View : stock.picking inherit to add samples &ndash;&gt;-->
 <!--    <record id="view_picking_form_inherit_samples" model="ir.ui.view">-->
 <!--        <field name="name">view.picking.form.inherit.samples</field>-->
@@ -79,4 +94,4 @@
 <!--        </field>-->
 <!--    </record>-->
 
-<!--</odoo>-->
+</odoo>
