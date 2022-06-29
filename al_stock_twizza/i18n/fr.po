@@ -20,6 +20,7 @@ msgstr ""
 msgid "Reader"
 msgstr "Lecteur"
 
+#. module: al_stock_twizza
 #: model:ir.model.fields,field_description:al_stock_twizza.field_stock_inventory__product_line_ids
 msgid "Adjusted products"
 msgstr "Articles ajustés"
