@@ -17,6 +17,7 @@
                     'form_view_ref': 'account_intrastat.view_intrastat_code_restricted_type_form',
                     'default_type': 'transaction'}"
                 />
+                <field name="default_incoterm_id"/>
             </xpath>
             <xpath expr="//group[@name='accounting_entries']" position="attributes">
                 <attribute name="groups">al_account_twizza.group_account_invoice_adv</attribute>
