@@ -9,6 +9,7 @@ class ResPartnerInherit(models.Model):
         string="Default intrastat code",
         domain=[('type', '=', 'transaction')]
     )
+    default_incoterm_id = fields.Many2one('account.incoterms', string='Incoterm')
 
     def action_view_partner_invoices(self):
         action = super(ResPartnerInherit, self).action_view_partner_invoices()
