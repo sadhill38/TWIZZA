@@ -16,5 +16,5 @@ class AccountMoveInherit(models.Model):
     @api.onchange('partner_id')
     def _onchange_partner_id(self):
         super()._onchange_partner_id()
-        if self.partner_id.default_intrastat_id:
-            self.intrastat_transport_mode_id = self.partner_id.default_intrastat_id.id
+        if self.partner_id.default_intrastat_transport_id:
+            self.intrastat_transport_mode_id = self.partner_id.default_intrastat_transport_id.id
