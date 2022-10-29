@@ -31,8 +31,8 @@
 
     # always loaded
     'data': [
-        # 'security/security.xml',
-        # 'security/ir.model.access.csv',
+        # Views
+        'views/res_partner_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
