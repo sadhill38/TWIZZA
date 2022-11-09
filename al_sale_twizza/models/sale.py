@@ -15,7 +15,9 @@ class SaleOrderLineInherit(models.Model):
     total_purchase_price = fields.Float(string="Total cost", compute="_compute_cost", store=True, digits='Product Price')
     margin_invoiced = fields.Float(string='Margin Invoiced', compute='_product_margin_invoiced', digits='Product Price', store=True)
     # add groups sale_manager
-    purchase_price = fields.Float(string='Cost', digits='Product Price', groups="sales_team.group_sale_manager")
+    purchase_price = fields.Float(
+        groups="sales_team.group_sale_manager,al_sale_twizza.group_direction_twizza_med"
+    )
 
     @api.depends('product_id', 'purchase_price', 'qty_invoiced', 'price_unit', 'untaxed_amount_invoiced')
     def _product_margin_invoiced(self):
