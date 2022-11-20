@@ -42,13 +42,6 @@
         'security/ir.model.access.csv',
         # menus
         'views/menuitems.xml',
-        # # views
-        # 'views/purchase_views.xml',
-        # 'views/sale_views.xml',
-        'views/stock_views.xml',
-        # # report
-        # 'report/stockpicking_operations.xml',
-        # 'report/deliveryslip.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

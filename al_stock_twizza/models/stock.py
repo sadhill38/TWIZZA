@@ -1,19 +1,4 @@
-from odoo import fields, models, api
-
-
-class StockInventory(models.Model):
-    _inherit = "stock.inventory"
-
-    product_line_ids = fields.Many2many(
-        comodel_name='product.product', relation='inventory_product_rel', string="Adjusted products",
-        compute="_compute_adjusted_products", store=True
-    )
-
-    @api.depends('line_ids.product_id')
-    def _compute_adjusted_products(self):
-        for rec in self:
-            rec.product_line_ids = [(6, 0, list(set(rec.line_ids.mapped('product_id').ids)))]
-
+# from odoo import fields, models, api, exceptions, _
 # import logging
 #
 # _logger = logging.getLogger(__name__)
