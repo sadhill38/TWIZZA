@@ -10,3 +10,7 @@ class ResPartnerInherit(models.Model):
     # Boolean
     home_consumption = fields.Boolean(string="Home Consumption")
     out_home_consumption = fields.Boolean(string="Out-Of-Home Consumption")
+
+    @api.model
+    def _commercial_fields(self):
+        return super(ResPartnerInherit, self)._commercial_fields() + ['team_id']
