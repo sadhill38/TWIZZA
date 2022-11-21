@@ -1,4 +1,4 @@
-from odoo import models
+from odoo import models, api, exceptions, _
 
 
 class SaleOrder(models.Model):
@@ -12,3 +12,12 @@ class SaleOrder(models.Model):
                 'edit': False
             })
         return action
+
+    @api.constrains('partner_id')
+    def _check_if_partner_is_locked(self):
+        for rec in self:
+            if rec.partner_id.lock_on_sales:
+                raise exceptions.UserError(_(
+                    "The partner %s is locked because of invoicing issues, "
+                    "if it's an urgent mater please contact your administrator"
+                ) % rec.partner_id.name)

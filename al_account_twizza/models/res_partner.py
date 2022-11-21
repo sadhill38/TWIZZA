@@ -1,4 +1,5 @@
 from odoo import models, fields
+from dateutil.relativedelta import relativedelta
 
 
 class ResPartnerInherit(models.Model):
@@ -15,6 +16,23 @@ class ResPartnerInherit(models.Model):
         domain=[('type', '=', 'transport')]
     )
     default_incoterm_id = fields.Many2one('account.incoterms', string='Incoterm')
+    allow_lock = fields.Boolean(string="Allow Lock on sales", default=True)
+    lock_on_sales = fields.Boolean(string="Locked in sales", compute="_lock_on_sales")
+
+    def _lock_on_sales(self):
+        today = fields.Date.context_today(self)
+        for rec in self:
+            if rec.allow_lock and rec.total_overdue > 0.0:
+                for aml in rec.unreconciled_aml_ids:
+                    if aml.company_id == self.env.company and not aml.blocked:
+                        date_lock = (
+                            aml.date_maturity if aml.date_maturity else aml.date
+                        ) + relativedelta(days=aml.move_id.invoice_payment_term_id.max_payment_delay)
+                        if today > date_lock:
+                            rec.lock_on_sales = True
+                            break
+            else:
+                rec.lock_on_sales = False
 
     def action_view_partner_invoices(self):
         action = super(ResPartnerInherit, self).action_view_partner_invoices()

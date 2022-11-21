@@ -23,6 +23,10 @@
             <xpath expr="//group[@name='accounting_entries']" position="attributes">
                 <attribute name="groups">al_account_twizza.group_account_invoice_adv</attribute>
             </xpath>
+            <field name="property_payment_term_id" position="before">
+                <field name="allow_lock" widget="boolean_toggle"/>
+                <field name="lock_on_sales"/>
+            </field>
         </field>
     </record>
 
