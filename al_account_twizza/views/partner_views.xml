@@ -24,8 +24,8 @@
                 <attribute name="groups">al_account_twizza.group_account_invoice_adv</attribute>
             </xpath>
             <field name="property_payment_term_id" position="before">
-                <field name="allow_lock" widget="boolean_toggle"/>
-                <field name="lock_on_sales"/>
+                <field name="allow_lock" widget="boolean_toggle" groups="al_account_twizza.group_account_lock_partners"/>
+                <field name="lock_on_sales" groups="al_account_twizza.group_account_lock_partners"/>
             </field>
         </field>
     </record>

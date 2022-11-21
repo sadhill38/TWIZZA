@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e-20220425\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-21 16:52+0000\n"
-"PO-Revision-Date: 2022-11-21 16:52+0000\n"
+"POT-Creation-Date: 2022-11-21 17:22+0000\n"
+"PO-Revision-Date: 2022-11-21 17:22+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: al_account_twizza
+#: model:res.groups,name:al_account_twizza.group_account_lock_partners
+msgid "Account : Lock partners"
+msgstr "Comptabilité : Blocage des clients"
 
 #. module: al_account_twizza
 #: model:res.groups,name:al_account_twizza.group_account_pre_account
@@ -145,8 +150,8 @@ msgid ""
 "The partner %s is locked because of invoicing issues, if it's an urgent "
 "mater please contact your administrator"
 msgstr ""
-"Le client %s est bloqué à cause son état de facturation, s'il s'agit d'une affaire urgente "
-"prière de contacter votre administrateur."
+"Le client %s est bloqué à cause son état de facturation, s'il s'agit d'une "
+"affaire urgente prière de contacter votre administrateur."
 
 #. module: al_account_twizza
 #: model:ir.model.fields,field_description:al_account_twizza.field_account_payment_term__user_ids
