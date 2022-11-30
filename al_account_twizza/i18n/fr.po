@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e-20220425\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-21 17:22+0000\n"
-"PO-Revision-Date: 2022-11-21 17:22+0000\n"
+"POT-Creation-Date: 2022-11-30 16:53+0000\n"
+"PO-Revision-Date: 2022-11-30 16:53+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -147,11 +147,12 @@ msgstr "Bon de commande"
 #: code:addons/al_account_twizza/models/sale_order.py:0
 #, python-format
 msgid ""
-"The partner %s is locked because of invoicing issues, if it's an urgent "
-"mater please contact your administrator"
+"Taking orders for the customer %s is locked, because of late payment, please"
+" regularize the situation and inform your accounting department."
 msgstr ""
-"Le client %s est bloqué à cause son état de facturation, s'il s'agit d'une "
-"affaire urgente prière de contacter votre administrateur."
+"La prise de commande pour le client %s est bloquée, pour cause de retard de "
+"paiement ; merci de régulariser sa situation et d'en informer votre service "
+"Comptabilité"
 
 #. module: al_account_twizza
 #: model:ir.model.fields,field_description:al_account_twizza.field_account_payment_term__user_ids

@@ -17,7 +17,21 @@ class SaleOrder(models.Model):
     def _check_if_partner_is_locked(self):
         for rec in self:
             if rec.partner_id.lock_on_sales:
+                # raise exceptions.UserError(_(
+                #     "The partner %s is locked because of invoicing issues, "
+                #     "if it's an urgent mater please contact your administrator"
+                # ) % rec.partner_id.name)
                 raise exceptions.UserError(_(
-                    "The partner %s is locked because of invoicing issues, "
-                    "if it's an urgent mater please contact your administrator"
+                    "Taking orders for the customer %s is locked, because of late payment, "
+                    "please regularize the situation and inform your accounting department."
                 ) % rec.partner_id.name)
+
+    def action_confirm(self):
+        self._check_if_partner_is_locked()
+        super(SaleOrder, self).action_confirm()
+
+    def action_quotation_send(self):
+        self._check_if_partner_is_locked()
+        super(SaleOrder, self).action_quotation_send()
+
+
