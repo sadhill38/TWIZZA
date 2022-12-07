@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e-20220425\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-23 19:20+0000\n"
-"PO-Revision-Date: 2022-10-23 19:20+0000\n"
+"POT-Creation-Date: 2022-11-30 16:53+0000\n"
+"PO-Revision-Date: 2022-11-30 16:53+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: al_account_twizza
+#: model:res.groups,name:al_account_twizza.group_account_lock_partners
+msgid "Account : Lock partners"
+msgstr "Comptabilité : Blocage des clients"
 
 #. module: al_account_twizza
 #: model:res.groups,name:al_account_twizza.group_account_pre_account
@@ -34,6 +39,12 @@ msgstr "Facturation : Commercial"
 #: model:ir.module.category,name:al_account_twizza.accounting_statement_category
 msgid "Account statement"
 msgstr "Comptabilité : Recouvrement"
+
+#. module: al_account_twizza
+#: model:ir.model.fields,field_description:al_account_twizza.field_res_partner__allow_lock
+#: model:ir.model.fields,field_description:al_account_twizza.field_res_users__allow_lock
+msgid "Allow Lock on sales"
+msgstr "Autoriser le blocage des ventes"
 
 #. module: al_account_twizza
 #: model:ir.actions.act_window,name:al_account_twizza.action_move_in_invoice_type_twizza
@@ -92,6 +103,17 @@ msgid "Journal Entries"
 msgstr "Pièces comptables"
 
 #. module: al_account_twizza
+#: model:ir.model.fields,field_description:al_account_twizza.field_res_partner__lock_on_sales
+#: model:ir.model.fields,field_description:al_account_twizza.field_res_users__lock_on_sales
+msgid "Locked in sales"
+msgstr "Ventes Bloquées"
+
+#. module: al_account_twizza
+#: model:ir.model.fields,field_description:al_account_twizza.field_account_payment_term__max_payment_delay
+msgid "Max. Payment Delay (days)"
+msgstr "Délai de paiement max. (jours)"
+
+#. module: al_account_twizza
 #: model:ir.model,name:al_account_twizza.model_account_payment_term
 msgid "Payment Terms"
 msgstr "Conditions de paiement"
@@ -120,6 +142,17 @@ msgstr "Remboursement"
 #: model:ir.model,name:al_account_twizza.model_sale_order
 msgid "Sales Order"
 msgstr "Bon de commande"
+
+#. module: al_account_twizza
+#: code:addons/al_account_twizza/models/sale_order.py:0
+#, python-format
+msgid ""
+"Taking orders for the customer %s is locked, because of late payment, please"
+" regularize the situation and inform your accounting department."
+msgstr ""
+"La prise de commande pour le client %s est bloquée, pour cause de retard de "
+"paiement ; merci de régulariser sa situation et d'en informer votre service "
+"Comptabilité"
 
 #. module: al_account_twizza
 #: model:ir.model.fields,field_description:al_account_twizza.field_account_payment_term__user_ids
