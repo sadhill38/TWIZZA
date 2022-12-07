@@ -28,10 +28,10 @@ class SaleOrder(models.Model):
 
     def action_confirm(self):
         self._check_if_partner_is_locked()
-        super(SaleOrder, self).action_confirm()
+        return super(SaleOrder, self).action_confirm()
 
     def action_quotation_send(self):
         self._check_if_partner_is_locked()
-        super(SaleOrder, self).action_quotation_send()
+        return super(SaleOrder, self).action_quotation_send()
 
 
