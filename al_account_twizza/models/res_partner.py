@@ -22,6 +22,7 @@ class ResPartnerInherit(models.Model):
     def _lock_on_sales(self):
         today = fields.Date.context_today(self)
         for rec in self:
+            rec.lock_on_sales = False
             if rec.allow_lock and rec.total_overdue > 0.0:
                 for aml in rec.unreconciled_aml_ids:
                     if aml.company_id == self.env.company and not aml.blocked:
@@ -30,9 +31,8 @@ class ResPartnerInherit(models.Model):
                         ) + relativedelta(days=aml.move_id.invoice_payment_term_id.max_payment_delay)
                         if today > date_lock:
                             rec.lock_on_sales = True
-                            break
-            else:
-                rec.lock_on_sales = False
+            # else:
+            #     rec.lock_on_sales = False
 
     def action_view_partner_invoices(self):
         action = super(ResPartnerInherit, self).action_view_partner_invoices()
