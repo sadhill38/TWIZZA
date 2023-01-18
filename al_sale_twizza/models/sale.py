@@ -121,15 +121,22 @@ class SaleOrderInherit(models.Model):
         res = super(SaleOrderInherit, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar, submenu=submenu)
         if view_type == 'form':
             is_admin_sales = self.env.user.has_group('sales_team.group_sale_manager')
+            has_price_unit_access = self.env.user.has_group('al_sale_twizza.group_sale_unit_price_access')
+            has_discount_access = self.env.user.has_group('al_sale_twizza.group_sale_discount_access')
+            res_line_form = res['fields']['order_line']['views']['form']
+            res_line_tree = res['fields']['order_line']['views']['tree']
             if not is_admin_sales:
-                xpath = "//field[@name='discount' or @name='price_unit' or @name='tax_id']"
-                xpath2 = "//field[@name='product_packaging']"
-                res_line_form = res['fields']['order_line']['views']['form']
-                res_line_tree = res['fields']['order_line']['views']['tree']
-                self.modifier_set_readonly(res=res_line_form, expression=xpath)
-                self.modifier_set_readonly(res=res_line_tree, expression=xpath)
+                # make readonly
+                self.modifier_set_readonly(res=res_line_form, expression="//field[@name='tax_id']")
+                self.modifier_set_readonly(res=res_line_tree, expression="//field[@name='tax_id']")
                 # make invisible
-                self.modifier_set_invisible(res=res_line_form, expression=xpath2)
+                self.modifier_set_invisible(res=res_line_form, expression="//field[@name='product_packaging']")
+            if not is_admin_sales and not has_price_unit_access:
+                self.modifier_set_readonly(res=res_line_form, expression="//field[@name='price_unit']")
+                self.modifier_set_readonly(res=res_line_tree, expression="//field[@name='price_unit']")
+            if not is_admin_sales and not has_discount_access:
+                self.modifier_set_readonly(res=res_line_form, expression="//field[@name='discount']")
+                self.modifier_set_readonly(res=res_line_tree, expression="//field[@name='discount']")
         return res
 
     def action_cancel(self):
