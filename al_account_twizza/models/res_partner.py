@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 from dateutil.relativedelta import relativedelta
 
 
@@ -23,6 +23,8 @@ class ResPartnerInherit(models.Model):
         today = fields.Date.context_today(self)
         for rec in self:
             rec.lock_on_sales = False
+            if rec.parent_id:
+                rec.lock_on_sales = rec.allow_lock and rec.parent_id.lock_on_sales
             if rec.allow_lock and rec.total_overdue > 0.0:
                 for aml in rec.unreconciled_aml_ids:
                     if aml.company_id == self.env.company and not aml.blocked:
@@ -31,8 +33,6 @@ class ResPartnerInherit(models.Model):
                         ) + relativedelta(days=aml.move_id.invoice_payment_term_id.max_payment_delay)
                         if today > date_lock:
                             rec.lock_on_sales = True
-            # else:
-            #     rec.lock_on_sales = False
 
     def action_view_partner_invoices(self):
         action = super(ResPartnerInherit, self).action_view_partner_invoices()
@@ -42,3 +42,7 @@ class ResPartnerInherit(models.Model):
                 'edit': False
             })
         return action
+
+    @api.model
+    def _commercial_fields(self):
+        return super(ResPartnerInherit, self)._commercial_fields() + ['allow_lock']
