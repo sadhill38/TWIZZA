@@ -28,6 +28,16 @@
             <field name="name">Sales : Margin Access</field>
             <field name="category_id" ref="base.module_category_usability"/>
         </record>
+        <!--    group : acces to unit price in sales   -->
+        <record id="group_sale_unit_price_access" model="res.groups">
+            <field name="name">Sales : Unit Price Access</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+        </record>
+        <!--    group : acces to discount on sales    -->
+        <record id="group_sale_discount_access" model="res.groups">
+            <field name="name">Sales : Discount Access</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+        </record>
 
         <!--    Extra group for twizza MED    -->
         <record id="group_direction_twizza_med" model="res.groups">

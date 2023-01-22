@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0+e-20220531\n"
+"Project-Id-Version: Odoo Server 13.0+e-20220425\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-04 08:58+0000\n"
-"PO-Revision-Date: 2022-06-04 08:58+0000\n"
+"POT-Creation-Date: 2023-01-18 18:50+0000\n"
+"PO-Revision-Date: 2023-01-18 18:50+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -72,6 +72,11 @@ msgstr "Mode de Livraison"
 #: model:ir.ui.menu,name:al_sale_twizza.al_menu_delivery_mode
 msgid "Delivery Modes"
 msgstr "Modes de livraison"
+
+#. module: al_sale_twizza
+#: model:res.groups,name:al_sale_twizza.group_direction_twizza_med
+msgid "Direction Twizza MED"
+msgstr ""
 
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode__display_name
@@ -176,9 +181,19 @@ msgid "Sales : Access to products"
 msgstr "Ventes : Accès aux articles"
 
 #. module: al_sale_twizza
+#: model:res.groups,name:al_sale_twizza.group_sale_discount_access
+msgid "Sales : Discount Access"
+msgstr "Ventes : Modification Remise"
+
+#. module: al_sale_twizza
 #: model:res.groups,name:al_sale_twizza.group_sale_margin_access
 msgid "Sales : Margin Access"
 msgstr "Ventes : Accès à la marge"
+
+#. module: al_sale_twizza
+#: model:res.groups,name:al_sale_twizza.group_sale_unit_price_access
+msgid "Sales : Unit Price Access"
+msgstr "Ventes : Modification P.U."
 
 #. module: al_sale_twizza
 #: model:ir.model,name:al_sale_twizza.model_sale_order
