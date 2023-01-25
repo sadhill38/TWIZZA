@@ -10,6 +10,10 @@ class ProductProduct(models.Model):
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
+    duration_type = fields.Selection([
+        ('dluo', "DLUO"),
+        ('dlc', "DLC"),
+    ], string="Duration Type")
     unit_volume = fields.Float(string="Unit Volume", compute='_compute_unit_volume', inverse='_set_unit_volume',
                                digits='Volume', store=True)
 

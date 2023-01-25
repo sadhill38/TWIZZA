@@ -30,9 +30,6 @@
         # 'product',
         'stock_account',
         'sale_stock',
-        # 'sale_margin',
-        # 'stock',
-        # 'purchase_stock',
     ],
 
     # always loaded
@@ -40,6 +37,8 @@
         # security
         'security/security.xml',
         'security/ir.model.access.csv',
+        # views
+        'views/stock_views.xml',
         # menus
         'views/menuitems.xml',
     ],
