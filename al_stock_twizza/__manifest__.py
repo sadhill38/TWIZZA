@@ -26,10 +26,12 @@
     'version': '13.0.0.1',
 
     'depends': [
+        # odoo addons
         'base',
-        # 'product',
         'stock_account',
         'sale_stock',
+        # twizza addons
+        'al_product_twizza',
     ],
 
     # always loaded

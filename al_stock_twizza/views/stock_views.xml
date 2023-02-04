@@ -10,7 +10,11 @@
 
                 <!--     Fixme : Not Working !!!       -->
                 <field name="state" position="after">
-                    <field name="date_dl"/>
+                    <field name="date_dl" options="{'datepicker':{'minDate': 'now'}}"/>
+                </field>
+
+                <field name="lot_id" position="attributes">
+                    <attribute name="readonly">1</attribute>
                 </field>
 
             </field>
