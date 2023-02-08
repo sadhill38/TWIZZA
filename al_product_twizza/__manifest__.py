@@ -28,6 +28,7 @@
     'depends': [
         'base',
         'product',
+        'product_expiry',
         'stock_account',
     ],
 

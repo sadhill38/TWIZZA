@@ -32,21 +32,19 @@
             </field>
         </record>
 
-<!--        &lt;!&ndash; Normal Form View : product.product &ndash;&gt;-->
-<!--        <record id="al_product_normal_form_view_inherit_twizza" model="ir.ui.view">-->
-<!--            <field name="name">al.product.normal.form_view.inherit.volume</field>-->
-<!--            <field name="model">product.product</field>-->
-<!--            <field name="inherit_id" ref="product.product_normal_form_view"/>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <div name="volume" position="after">-->
-<!--                    <label for="unit_volume" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}"/>-->
-<!--                    <div class="o_row" name="unit_volume" attrs="{'invisible':[('product_variant_count', '>', 1), ('is_product_variant', '=', False)]}">-->
-<!--                        <field name="unit_volume" string="Unit Volume"/>-->
-<!--                        <span>L</span>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </field>-->
-<!--        </record>-->
+        <!--    Product Expiry : Form View    -->
+        <record id="view_product_form_expiry_inherit_twizza" model="ir.ui.view">
+            <field name="name">view.product.form.expiry.inherit.twizza</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product_expiry.view_product_form_expiry"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//group[@name='expiry_and_lots']/label[@for='use_time']" position="before">
+                    <field name="duration_type"/>
+                </xpath>
+
+            </field>
+        </record>
 
         <!-- Easy Form View : product.product -->
         <record id="al_product_variant_easy_edit_view_twizza" model="ir.ui.view">
