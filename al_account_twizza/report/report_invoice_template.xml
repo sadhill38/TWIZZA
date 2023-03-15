@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_document" inherit_id="account.report_invoice_document">
+
+        <xpath expr="//p[@name='comment']" position="after">
+            <center>
+                <t t-if="o.payment_mode_id.bank_acocunt">
+                    <span t-field="o.payment_mode_id.bank_acocunt"/>
+                </t>
+                <t t-else="">
+                    <!-- todo : default value goes here -->
+                    <!-- todo : remove studio added fields -->
+                </t>
+            </center>
+        </xpath>
+
+    </template>
+</odoo>

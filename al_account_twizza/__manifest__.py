@@ -47,6 +47,8 @@
         'views/account_views.xml',
         'views/account_payment_views.xml',
         'views/partner_views.xml',
+        # reports
+        'report/report_invoice_template.xml',
         # menus
         'views/menuitems.xml',
     ],
