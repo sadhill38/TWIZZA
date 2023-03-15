@@ -18,6 +18,20 @@ class SaleOrderLineInherit(models.Model):
     purchase_price = fields.Float(
         groups="sales_team.group_sale_manager,al_sale_twizza.group_direction_twizza_med"
     )
+    tarif_uom = fields.Monetary(compute='_compute_tarif', string='Net Price Unit (uom)', readonly=True)
+    tarif_unit = fields.Monetary(compute='_compute_tarif', string='Net Price Unit (unit)', readonly=True)
+
+    @api.depends('product_id', 'price_unit', 'product_uom', 'discount')
+    def _compute_tarif(self):
+        for line in self:
+            tarif = line.price_unit * (1.0 - line.discount/100)
+            line.tarif_uom = tarif
+            if line.product_uom.uom_type == 'bigger':
+                line.tarif_unit = tarif / line.product_uom.factor_inv
+            elif line.product_uom.uom_type == 'smaller':
+                line.tarif_unit = tarif / line.product_uom.factor
+            else:
+                line.tarif_unit = tarif
 
     @api.depends('product_id', 'purchase_price', 'qty_invoiced', 'price_unit', 'untaxed_amount_invoiced')
     def _product_margin_invoiced(self):

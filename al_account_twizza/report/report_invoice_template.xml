@@ -14,5 +14,19 @@
             </center>
         </xpath>
 
+        <xpath expr="//th[@name='th_price_unit']" position="after">
+            <th name="th_tarif_unit" class="text-right">Net Price Unit (unit)</th>
+            <th name="th_tarif_uom" class="text-right">Net Price Unit (uom)</th>
+        </xpath>
+
+        <td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}" position="after">
+            <td name="td_tarif_unit" class="text-right">
+                <span t-field="line.tarif_unit"/>
+            </td>
+            <td name="td_tarif_uom" class="text-right">
+                <span t-field="line.tarif_uom"/>
+            </td>
+        </td>
+
     </template>
 </odoo>

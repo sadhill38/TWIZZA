@@ -31,6 +31,10 @@
                 <attribute name="options">{'no_open': True, 'no_create': True}</attribute>
             </xpath>
 
+            <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_subtotal']" position="before">
+                <field name="tarif_uom" widget="monetary" optional="hide"/>
+                <field name="tarif_unit" widget="monetary" optional="hide"/>
+            </xpath>
         </field>
     </record>
 

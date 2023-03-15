@@ -108,6 +108,11 @@ msgid "Journal Entries"
 msgstr "Pièces comptables"
 
 #. module: al_account_twizza
+#: model:ir.model,name:al_account_twizza.model_account_move_line
+msgid "Journal Item"
+msgstr "Écriture comptable"
+
+#. module: al_account_twizza
 #: model:ir.model.fields,field_description:al_account_twizza.field_res_partner__lock_on_sales
 #: model:ir.model.fields,field_description:al_account_twizza.field_res_users__lock_on_sales
 msgid "Locked in sales"
@@ -122,6 +127,18 @@ msgstr "Délai de paiement max. (jours)"
 #: model:ir.model.fields,field_description:al_account_twizza.field_account_move__payment_mode_id
 msgid "Payment Mode"
 msgstr "Mode de paiement"
+
+#. module: al_account_twizza
+#: model:ir.model.fields,field_description:al_account_twizza.field_account_move_line__tarif_unit
+#: model_terms:ir.ui.view,arch_db:al_account_twizza.report_invoice_document
+msgid "Net Price Unit (unit)"
+msgstr "P.U Net (Pièce)"
+
+#. module: al_account_twizza
+#: model:ir.model.fields,field_description:al_account_twizza.field_account_move_line__tarif_uom
+#: model_terms:ir.ui.view,arch_db:al_account_twizza.report_invoice_document
+msgid "Net Price Unit (uom)"
+msgstr "P.U Net"
 
 #. module: al_account_twizza
 #: model:ir.model,name:al_account_twizza.model_account_payment_term

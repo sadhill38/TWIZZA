@@ -44,6 +44,8 @@
         'views/models_views.xml',
         'views/res_partner_views.xml',
         'views/menuitems.xml',
+        # report
+        'report/sale_report_templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
