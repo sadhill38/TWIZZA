@@ -2,17 +2,19 @@
 <odoo>
     <template id="report_invoice_document" inherit_id="account.report_invoice_document">
 
-        <xpath expr="//p[@name='comment']" position="after">
+        <p t-if="o.type in ('out_invoice', 'in_refund')" position="before">
             <center>
-                <t t-if="o.payment_mode_id.bank_acocunt">
-                    <span t-field="o.payment_mode_id.bank_acocunt"/>
-                </t>
-                <t t-else="">
-                    <!-- todo : default value goes here -->
-                    <!-- todo : remove studio added fields -->
-                </t>
+                <p t-if="o.payment_mode_id.bank_acocunt">
+                    <b t-field="o.payment_mode_id.bank_acocunt"/>
+                </p>
+                <p t-else="">
+                    <b>
+                        ATTENTION - Nos coordonnées bancaires ont changé :<br/>
+                        Nouvel IBAN FR76 3000 4025 2000 0101 6682 983 - BIC BNPAFRPPXXX
+                    </b>
+                </p>
             </center>
-        </xpath>
+        </p>
 
     </template>
 </odoo>
