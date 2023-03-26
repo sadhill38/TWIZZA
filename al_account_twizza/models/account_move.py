@@ -7,7 +7,7 @@ _logger = logging.getLogger(__name__)
 class AccountMoveInherit(models.Model):
     _inherit = "account.move"
 
-    payment_mode_id = fields.Many2one("payment.mode", string="Payment Mode", related="partner_id.payment_mode_id")
+    payment_mode_id = fields.Many2one("payment.mode", string="Payment Mode")
 
     def post(self):
         # bypass access right check on action_post if group_create_invoices_from_sales

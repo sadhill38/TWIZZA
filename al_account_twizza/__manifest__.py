@@ -24,7 +24,7 @@
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
     # for the full listhr
     'category': 'account',
-    'version': '13.0.0.1',
+    'version': '13.0.0.2',
 
     'depends': [
         # odoo addons
@@ -49,6 +49,7 @@
         'views/partner_views.xml',
         # reports
         'report/report_invoice_template.xml',
+        'report/report_sale_template.xml',
         # menus
         'views/menuitems.xml',
     ],
