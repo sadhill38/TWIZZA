@@ -6,7 +6,10 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <!--       add delivery mode      -->
+
+            <xpath expr="//group[@name='sale']/field[@name='user_id']" position="before">
+                <field name="area_id" options="{'no_open': True}"/>
+            </xpath>
             <xpath expr="//group[@name='sale']" position="inside">
                 <field name="delivery_mode_id" widget="selection"/>
                 <field name="payment_mode_id" widget="selection"/>

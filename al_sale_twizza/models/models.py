@@ -15,8 +15,20 @@ class PaymentMode(models.Model):
     name = fields.Char(string="Name", required=True)
 
 
-class CustomerType(models.Model):
+class PartnerType(models.Model):
     _name = 'res.partner.type'
     _description = 'Partner Type'
 
     name = fields.Char(string="Name", required=True)
+
+
+class PartnerArea(models.Model):
+    _name = "res.partner.area"
+    _description = "Partner Area"
+
+    _sql_constraints = [
+        ('unique_name', 'unique (name)', "The name you're trying to use for this area exists already.")
+    ]
+
+    name = fields.Char(string='Area', required=True)
+    description = fields.Text(string='Description')
