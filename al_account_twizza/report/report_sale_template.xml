@@ -3,7 +3,7 @@
     <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document">
 
         <p t-field="doc.note" position="before">
-            <center t-if="env.context.get('proforma', False) or is_pro_forma or doc.state not in ['draft','sent']">
+            <center t-if="env.context.get('proforma', False) or is_pro_forma">
                 <p t-if="doc.payment_mode_id.bank_acocunt">
                     <b t-field="doc.payment_mode_id.bank_acocunt"/>
                 </p>
