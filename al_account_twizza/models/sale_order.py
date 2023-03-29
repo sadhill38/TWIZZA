@@ -4,6 +4,13 @@ from odoo import models, api, exceptions, _
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
+    def _prepare_invoice(self):
+        res = super()._prepare_invoice()
+        res.update({
+            'payment_mode_id': self.payment_mode_id.id or False
+        })
+        return res
+
     def action_view_invoice(self):
         action = super(SaleOrder, self).action_view_invoice()
         if not self.env.user.has_group('account.group_account_manager'):

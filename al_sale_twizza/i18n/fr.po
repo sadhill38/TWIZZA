@@ -34,6 +34,11 @@ msgid "Areas"
 msgstr "Secteurs"
 
 #. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__bank_acocunt
+msgid "Bank Account"
+msgstr "Compte Bancaire"
+
+#. module: al_sale_twizza
 #: model:ir.model,name:al_sale_twizza.model_res_partner
 msgid "Contact"
 msgstr ""
@@ -266,3 +271,8 @@ msgstr "Coût Total"
 #, python-format
 msgid "You can't cancel a totally invoiced sale order."
 msgstr "Vous ne pouvez pas annuler une commande totalement facturée."
+
+#. module: al_sale_twizza
+#: model_terms:ir.ui.view,arch_db:al_sale_twizza.payment_mode_view_form_twizza
+msgid "payment_mode_form"
+msgstr ""

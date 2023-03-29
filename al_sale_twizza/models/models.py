@@ -13,6 +13,7 @@ class PaymentMode(models.Model):
     _description = 'Payment Mode'
 
     name = fields.Char(string="Name", required=True)
+    bank_acocunt = fields.Text(string="Bank Account")
 
 
 class PartnerType(models.Model):
