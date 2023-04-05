@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e-20220425\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-26 08:45+0000\n"
-"PO-Revision-Date: 2023-03-26 08:45+0000\n"
+"POT-Creation-Date: 2023-03-29 15:14+0000\n"
+"PO-Revision-Date: 2023-03-29 15:14+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -24,6 +24,19 @@ msgstr "Compte analytique"
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__bank_acocunt
 msgid "Bank Account"
 msgstr "Compte Bancaire"
+
+#. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner__area_id
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_area__name
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_users__area_id
+msgid "Area"
+msgstr "Secteur"
+
+#. module: al_sale_twizza
+#: model:ir.actions.act_window,name:al_sale_twizza.al_partner_area_window_action
+#: model:ir.ui.menu,name:al_sale_twizza.al_menu_partner_area
+msgid "Areas"
+msgstr "Secteurs"
 
 #. module: al_sale_twizza
 #: model:ir.model,name:al_sale_twizza.model_res_partner
@@ -43,6 +56,7 @@ msgstr "Création de factures depuis les ventes"
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode__create_uid
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__create_uid
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_area__create_uid
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type__create_uid
 msgid "Created by"
 msgstr "Créé par"
@@ -50,6 +64,7 @@ msgstr "Créé par"
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode__create_date
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__create_date
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_area__create_date
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type__create_date
 msgid "Created on"
 msgstr "Créé le"
@@ -79,6 +94,11 @@ msgid "Delivery Modes"
 msgstr "Modes de livraison"
 
 #. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_area__description
+msgid "Description"
+msgstr ""
+
+#. module: al_sale_twizza
 #: model:res.groups,name:al_sale_twizza.group_direction_twizza_med
 msgid "Direction Twizza MED"
 msgstr ""
@@ -86,6 +106,7 @@ msgstr ""
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode__display_name
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__display_name
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_area__display_name
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type__display_name
 msgid "Display Name"
 msgstr "Afficher Nom"
@@ -99,6 +120,7 @@ msgstr "Consommation à domicile"
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode__id
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__id
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_area__id
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type__id
 msgid "ID"
 msgstr ""
@@ -106,6 +128,7 @@ msgstr ""
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode____last_update
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode____last_update
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_area____last_update
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type____last_update
 msgid "Last Modified on"
 msgstr "Dernière modification le"
@@ -113,6 +136,7 @@ msgstr "Dernière modification le"
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode__write_uid
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__write_uid
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_area__write_uid
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type__write_uid
 msgid "Last Updated by"
 msgstr "Dernière mise à jour par"
@@ -120,6 +144,7 @@ msgstr "Dernière mise à jour par"
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_delivery_mode__write_date
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__write_date
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_area__write_date
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type__write_date
 msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
@@ -146,6 +171,11 @@ msgstr "Nom"
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_users__out_home_consumption
 msgid "Out-Of-Home Consumption"
 msgstr "Restauration hors domicile (RHD)"
+
+#. module: al_sale_twizza
+#: model:ir.model,name:al_sale_twizza.model_res_partner_area
+msgid "Partner Area"
+msgstr "Secteur"
 
 #. module: al_sale_twizza
 #: model:ir.actions.act_window,name:al_sale_twizza.al_partner_type_window_action
@@ -225,6 +255,11 @@ msgstr "Sélectionnez la catégorie de l'article actuel"
 msgid "The analytic account to use by default in a sales order."
 msgstr ""
 "Le compte analytique à utiliser par défaut dans les commandes de vente."
+
+#. module: al_sale_twizza
+#: model:ir.model.constraint,message:al_sale_twizza.constraint_res_partner_area_unique_name
+msgid "The name you're trying to use for this area exists already."
+msgstr "Le nom que vous essayez d'utiliser pour ce secteur existe déjà."
 
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order_line__total_purchase_price
