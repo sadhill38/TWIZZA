@@ -44,6 +44,7 @@
         'views/crm_team_views.xml',
         'views/partner_area_views.xml',
         'views/models_views.xml',
+        'views/partner_area_views.xml',
         'views/res_partner_views.xml',
         'views/menuitems.xml',
     ],

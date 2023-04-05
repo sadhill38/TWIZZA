@@ -39,6 +39,19 @@ msgid "Bank Account"
 msgstr "Compte Bancaire"
 
 #. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner__area_id
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_area__name
+#: model:ir.model.fields,field_description:al_sale_twizza.field_res_users__area_id
+msgid "Area"
+msgstr "Secteur"
+
+#. module: al_sale_twizza
+#: model:ir.actions.act_window,name:al_sale_twizza.al_partner_area_window_action
+#: model:ir.ui.menu,name:al_sale_twizza.al_menu_partner_area
+msgid "Areas"
+msgstr "Secteurs"
+
+#. module: al_sale_twizza
 #: model:ir.model,name:al_sale_twizza.model_res_partner
 msgid "Contact"
 msgstr ""
