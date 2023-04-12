@@ -142,6 +142,16 @@ msgid "Name"
 msgstr "Nom"
 
 #. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order_line__tarif_unit
+msgid "Net Price Unit (unit)"
+msgstr "P.U Net (Pièce)"
+
+#. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order_line__tarif_uom
+msgid "Net Price Unit (uom)"
+msgstr "P.U Net"
+
+#. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner__out_home_consumption
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_users__out_home_consumption
 msgid "Out-Of-Home Consumption"
