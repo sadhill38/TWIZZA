@@ -21,7 +21,6 @@ class SaleOrderLineInherit(models.Model):
     tarif_uom = fields.Monetary(compute='_compute_tarif', string='Net Price Unit (uom)', readonly=True)
     tarif_unit = fields.Monetary(compute='_compute_tarif', string='Net Price Unit (unit)', readonly=True)
 
-    # todo : add view
     @api.depends('product_id', 'price_unit', 'product_uom', 'discount')
     def _compute_tarif(self):
         for line in self:
