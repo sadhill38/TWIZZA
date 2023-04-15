@@ -137,13 +137,13 @@ msgstr "Mode de paiement"
 #: model:ir.model.fields,field_description:al_account_twizza.field_account_move_line__tarif_unit
 #: model_terms:ir.ui.view,arch_db:al_account_twizza.report_invoice_document
 msgid "Net Price Unit (unit)"
-msgstr "P.U Net (Pièce)"
+msgstr "P.U. Net (Pièce)"
 
 #. module: al_account_twizza
 #: model:ir.model.fields,field_description:al_account_twizza.field_account_move_line__tarif_uom
 #: model_terms:ir.ui.view,arch_db:al_account_twizza.report_invoice_document
 msgid "Net Price Unit (uom)"
-msgstr "P.U Net"
+msgstr "P.U. Net (UDM)"
 
 #. module: al_account_twizza
 #: model:ir.model,name:al_account_twizza.model_account_payment_term
