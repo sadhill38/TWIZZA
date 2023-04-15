@@ -20,7 +20,7 @@
             <field name="inherit_id" ref="sale.sale_order_line_view_form_readonly"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='product_id']" position="before">
-<!--                    <button name="action_compute_purchase_price" type="object" string="Compute Purchase price"/>-->
+                    <!--                    <button name="action_compute_purchase_price" type="object" string="Compute Purchase price"/>-->
                     <field name="product_category_id"/>
                 </xpath>
             </field>
@@ -35,10 +35,12 @@
                 <header position="attributes">
                     <attribute name="groups">sales_team.group_sale_salesman</attribute>
                 </header>
-                <xpath expr="//header/button[@name='%(sale.action_view_sale_advance_payment_inv)d'][1]" position="attributes">
+                <xpath expr="//header/button[@name='%(sale.action_view_sale_advance_payment_inv)d'][1]"
+                       position="attributes">
                     <attribute name="groups">al_sale_twizza.group_create_invoices_from_sales</attribute>
                 </xpath>
-                <xpath expr="//header/button[@name='%(sale.action_view_sale_advance_payment_inv)d'][2]" position="attributes">
+                <xpath expr="//header/button[@name='%(sale.action_view_sale_advance_payment_inv)d'][2]"
+                       position="attributes">
                     <attribute name="groups">al_sale_twizza.group_create_invoices_from_sales</attribute>
                 </xpath>
                 <!--        Action confirm : add group sale all leads       -->
@@ -50,17 +52,20 @@
                     <attribute name="groups">sales_team.group_sale_salesman_all_leads</attribute>
                 </xpath>
                 <!-- sale.order.line -->
-                <xpath expr="//field[@name='order_line']/form/group/group/field[@name='product_id']" position="attributes">
+                <xpath expr="//field[@name='order_line']/form/group/group/field[@name='product_id']"
+                       position="attributes">
                     <attribute name="options">{'no_create': True, 'no_open': True}</attribute>
                 </xpath>
                 <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="attributes">
                     <attribute name="options">{'no_create': True, 'no_open': True}</attribute>
                 </xpath>
-                <xpath expr="//field[@name='order_line']/form/group/group/div/field[@name='product_uom']" position="attributes">
+                <xpath expr="//field[@name='order_line']/form/group/group/div/field[@name='product_uom']"
+                       position="attributes">
                     <attribute name="readonly">True</attribute>
                     <attribute name="options">{'no_create': True, 'no_open': True}</attribute>
                 </xpath>
-                <xpath expr="//field[@name='order_line']/form/group/group[2]/label[@for='customer_lead']" position="attributes">
+                <xpath expr="//field[@name='order_line']/form/group/group[2]/label[@for='customer_lead']"
+                       position="attributes">
                     <attribute name="groups">sales_team.group_sale_manager</attribute>
                 </xpath>
                 <xpath expr="//field[@name='order_line']/form/group/group[2]/div[@name='lead']" position="attributes">
@@ -68,10 +73,6 @@
                 </xpath>
                 <xpath expr="//field[@name='order_line']/tree/field[@name='customer_lead']" position="attributes">
                     <attribute name="groups">sales_team.group_sale_manager</attribute>
-                </xpath>
-                <xpath expr="//field[@name='order_line']/tree/field[@name='price_subtotal']" position="before">
-                    <field name="tarif_uom" widget="monetary" optional="hide"/>
-                    <field name="tarif_unit" widget="monetary" optional="hide"/>
                 </xpath>
                 <xpath expr="//group[hasclass('oe_subtotal_footer')]" position="inside">
                     <label for="margin_rate" groups="al_sale_twizza.group_sale_margin_access"/>
@@ -88,6 +89,26 @@
                 </xpath>
             </field>
         </record>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="al_view_margin_sale_order_line_form_inherit" model="ir.ui.view">
+            <field name="name">al.view.margin.sale.order.line.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_margin.sale_margin_sale_order_line_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="before">
+                    <xpath expr="//field[@name='order_line']/tree//field[@name='purchase_price']" position="move"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='tax_id']" position="before">
+                    <xpath expr="//field[@name='order_line']/tree//field[@name='discount']" position="move"/>
+                    <field name="tarif_uom" widget="monetary" optional="hide"/>
+                    <field name="tarif_unit" widget="monetary" optional="hide"/>
+                </xpath>
+
+            </field>
+        </record>
+
 
         <record id="al_view_order_tree_inherit_twizza" model="ir.ui.view">
             <field name="name">al.view.order.tree.inherit.twizza</field>
