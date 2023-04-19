@@ -66,6 +66,15 @@ class SaleOrderInherit(models.Model):
             'analytic_account_id': self.team_id.analytic_account_id.id or False
         })
 
+    @api.onchange('partner_shipping_id', 'partner_id', 'company_id')
+    def onchange_partner_shipping_id(self):
+        values = {
+            'user_id': self.partner_shipping_id.user_id and self.partner_shipping_id.user_id.id,
+            'team_id': self.partner_shipping_id.team_id and self.partner_shipping_id.team_id.id,
+        }
+        self.update(values)
+        return super(SaleOrderInherit, self).onchange_partner_shipping_id()
+
     @api.onchange('partner_id')
     def onchange_partner_id(self):
         self.update({
