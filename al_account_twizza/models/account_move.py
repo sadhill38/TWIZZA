@@ -20,3 +20,22 @@ class AccountMoveInherit(models.Model):
         super()._onchange_partner_id()
         if self.partner_id.default_intrastat_transport_id:
             self.intrastat_transport_mode_id = self.partner_id.default_intrastat_transport_id.id
+
+
+class AccountMoveLine(models.Model):
+    _inherit = "account.move.line"
+
+    tarif_uom = fields.Monetary(compute='_compute_tarif', string='Net Price Unit (uom)', readonly=True)
+    tarif_unit = fields.Monetary(compute='_compute_tarif', string='Net Price Unit (unit)', readonly=True)
+
+    @api.depends('product_id', 'price_unit', 'product_uom_id', 'discount')
+    def _compute_tarif(self):
+        for line in self:
+            tarif = line.price_unit * (1.0 - line.discount / 100)
+            line.tarif_uom = tarif
+            if line.product_uom_id.uom_type == 'bigger':
+                line.tarif_unit = tarif / line.product_uom_id.factor_inv
+            elif line.product_uom_id.uom_type == 'smaller':
+                line.tarif_unit = tarif / line.product_uom_id.factor
+            else:
+                line.tarif_unit = tarif
