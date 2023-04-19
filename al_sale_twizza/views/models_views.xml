@@ -6,7 +6,7 @@
         <field name="name">payment.mode.view.form.twizza</field>
         <field name="model">payment.mode</field>
         <field name="arch" type="xml">
-            <form string="payment_mode_form">
+            <form>
                 <sheet>
                     <group>
                         <field name="name"/>
