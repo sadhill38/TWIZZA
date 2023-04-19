@@ -31,6 +31,4 @@ class ResPartnerInherit(models.Model):
             if not self.env.user.has_group('account.group_account_manager'):
                 # make readonly
                 self.modifier_set_readonly(res=res, expression="//field[@name='area_id']")
-                self.modifier_set_readonly(res=res, expression="//field[@name='team_id']")
-                self.modifier_set_readonly(res=res, expression="//field[@name='user_id']")
         return res
