@@ -32,6 +32,9 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
+<!--                <header position="inside">-->
+<!--                    <button name="tmp_action_recompute_margin" type="object" string="MarginRecompute"/>-->
+<!--                </header>-->
                 <header position="attributes">
                     <attribute name="groups">sales_team.group_sale_salesman</attribute>
                 </header>
@@ -74,7 +77,11 @@
                 <xpath expr="//field[@name='order_line']/tree/field[@name='customer_lead']" position="attributes">
                     <attribute name="groups">sales_team.group_sale_manager</attribute>
                 </xpath>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='state']" position="before">
+                    <field name="margin_net" optional="hide" groups="al_sale_twizza.group_sale_margin_access"/>
+                </xpath>
                 <xpath expr="//group[hasclass('oe_subtotal_footer')]" position="inside">
+                    <field name="margin_net" groups="al_sale_twizza.group_sale_margin_access"/>
                     <label for="margin_rate" groups="al_sale_twizza.group_sale_margin_access"/>
                     <div class="oe_right" groups="al_sale_twizza.group_sale_margin_access">
                         <field class="oe_inline" name="margin_rate"/>
