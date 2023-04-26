@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e-20220425\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-29 15:14+0000\n"
-"PO-Revision-Date: 2023-03-29 15:14+0000\n"
+"POT-Creation-Date: 2023-04-19 15:20+0000\n"
+"PO-Revision-Date: 2023-04-19 15:20+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -163,6 +163,11 @@ msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
 #. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order_line__margin
+msgid "Margin"
+msgstr "Marge"
+
+#. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order_line__margin_invoiced
 msgid "Margin Invoiced"
 msgstr "Marge Facturée"
@@ -190,6 +195,12 @@ msgstr "P.U. Net (Pièce)"
 #: model_terms:ir.ui.view,arch_db:al_sale_twizza.report_saleorder_document
 msgid "Net Price Unit (uom)"
 msgstr "P.U. Net (UDM)"
+
+#. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order__margin_net
+#: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order_line__margin_net
+msgid "Net Margin"
+msgstr "Marge Nette"
 
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner__out_home_consumption
@@ -296,8 +307,3 @@ msgstr "Coût Total"
 #, python-format
 msgid "You can't cancel a totally invoiced sale order."
 msgstr "Vous ne pouvez pas annuler une commande totalement facturée."
-
-#. module: al_sale_twizza
-#: model_terms:ir.ui.view,arch_db:al_sale_twizza.payment_mode_view_form_twizza
-msgid "payment_mode_form"
-msgstr ""
