@@ -191,10 +191,9 @@ class SaleOrderInherit(models.Model):
         for rec in self:
             if rec.invoice_status == 'invoiced':
                 raise exceptions.ValidationError(_("You can't cancel a totally invoiced sale order."))
-        return super(SaleOrderInherit, self).action_cancel()
+        return super().action_cancel()
 
     def _compute_amount_total_without_delivery(self):
         res = super()._compute_amount_total_without_delivery()
         delivery_cost = self.amount_total - res
-        # todo : test this one !!!
         return self.amount_untaxed - delivery_cost
