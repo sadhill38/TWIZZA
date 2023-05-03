@@ -11,4 +11,10 @@
         <field name="implied_ids" eval="[(6,0, [ref('group_purchase_reader')])]"/>
     </record>
 
+    <!--    group : access to unit price in purchases   -->
+    <record id="group_purchase_unit_price_access" model="res.groups">
+        <field name="name">Purchases : Unit Price Access</field>
+        <field name="category_id" ref="base.module_category_usability"/>
+    </record>
+
 </odoo>
