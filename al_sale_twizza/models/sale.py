@@ -83,9 +83,10 @@ class SaleOrderInherit(models.Model):
 
     days_to_confirm = fields.Float(string='Days to confirm', compute='_compute_days_to', store=True)
     days_to_invoice = fields.Float(string='Days to invoice', compute='_compute_days_to', store=True)
-    margin_rate = fields.Float(string='Margin Rate', compute='_compute_margin_rate', store=True)
     delivery_mode_id = fields.Many2one("delivery.mode", string="Delivery Mode")
     payment_mode_id = fields.Many2one("payment.mode", string="Payment Mode")
+    margin_rate = fields.Float(string='Margin Rate', compute='_compute_margin_rate', store=True)
+    margin_rate_net = fields.Float(string='Net Margin Rate', compute='_compute_margin_rate', store=True)
     margin_net = fields.Monetary(
         string='Net Margin',
         compute='_product_margin',
@@ -98,6 +99,17 @@ class SaleOrderInherit(models.Model):
         super(SaleOrderInherit, self)._product_margin()
         for order in self:
             order.margin_net = sum(order.order_line.filtered(lambda r: r.state != 'cancel').mapped('margin_net'))
+
+    @api.depends('margin', 'order_line', 'order_line.total_purchase_price', 'order_line.product_id.type')
+    def _compute_margin_rate(self):
+        for rec in self:
+            total_cost = sum(rec.order_line.mapped('total_purchase_price'))
+            if total_cost != 0.0:
+                rec.margin_rate = (rec.margin / total_cost) * 100
+                rec.margin_rate_net = (rec.margin_net / total_cost) * 100
+            else:
+                rec.margin_rate = 100
+                rec.margin_rate_net = 100
 
     @api.onchange('team_id')
     def _onchange_team_id(self):
@@ -121,15 +133,6 @@ class SaleOrderInherit(models.Model):
             'payment_mode_id': self.partner_id.payment_mode_id.id or False,
         })
         return super(SaleOrderInherit, self).onchange_partner_id()
-
-    @api.depends('margin', 'order_line', 'order_line.total_purchase_price')
-    def _compute_margin_rate(self):
-        for rec in self:
-            total_cost = sum(rec.order_line.mapped('total_purchase_price'))
-            if total_cost != 0.0:
-                rec.margin_rate = (rec.margin / total_cost) * 100
-            else:
-                rec.margin_rate = 100
 
     @api.depends('create_date', 'date_order', 'state', 'invoice_ids', 'invoice_ids.invoice_date')
     def _compute_days_to(self):

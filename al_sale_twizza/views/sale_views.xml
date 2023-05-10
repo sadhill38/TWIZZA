@@ -87,6 +87,11 @@
                         <field class="oe_inline" name="margin_rate"/>
                         <span> %</span>
                     </div>
+                    <label for="margin_rate_net" groups="al_sale_twizza.group_sale_margin_access"/>
+                    <div class="oe_right" groups="al_sale_twizza.group_sale_margin_access">
+                        <field class="oe_inline" name="margin_rate_net"/>
+                        <span> %</span>
+                    </div>
                 </xpath>
                 <!--       add delivery mode         -->
                 <xpath expr="//field[@name='payment_term_id']" position="after">
