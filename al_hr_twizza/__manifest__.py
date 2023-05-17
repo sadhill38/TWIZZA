@@ -30,6 +30,8 @@
         # odoo
         'hr',
         'hr_holidays',
+        # oca
+        'hr_holidays_public',
     ],
 
     # always loaded
