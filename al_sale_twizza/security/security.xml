@@ -23,17 +23,17 @@
             <field name="category_id" ref="base.module_category_usability"/>
         </record>
 
-        <!--    group : acces to margin rate and margin    -->
+        <!--    group : access to margin rate and margin    -->
         <record id="group_sale_margin_access" model="res.groups">
             <field name="name">Sales : Margin Access</field>
             <field name="category_id" ref="base.module_category_usability"/>
         </record>
-        <!--    group : acces to unit price in sales   -->
+        <!--    group : access to unit price in sales   -->
         <record id="group_sale_unit_price_access" model="res.groups">
             <field name="name">Sales : Unit Price Access</field>
             <field name="category_id" ref="base.module_category_usability"/>
         </record>
-        <!--    group : acces to discount on sales    -->
+        <!--    group : access to discount on sales    -->
         <record id="group_sale_discount_access" model="res.groups">
             <field name="name">Sales : Discount Access</field>
             <field name="category_id" ref="base.module_category_usability"/>
