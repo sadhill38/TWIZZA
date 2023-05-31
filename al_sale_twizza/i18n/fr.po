@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0+e-20220425\n"
+"Project-Id-Version: Odoo Server 13.0+e-20221005\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-29 15:14+0000\n"
-"PO-Revision-Date: 2023-03-29 15:14+0000\n"
+"POT-Creation-Date: 2023-05-17 15:22+0000\n"
+"PO-Revision-Date: 2023-05-17 15:22+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,19 +37,6 @@ msgstr "Secteurs"
 #: model:ir.model.fields,field_description:al_sale_twizza.field_payment_mode__bank_acocunt
 msgid "Bank Account"
 msgstr "Compte Bancaire"
-
-#. module: al_sale_twizza
-#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner__area_id
-#: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_area__name
-#: model:ir.model.fields,field_description:al_sale_twizza.field_res_users__area_id
-msgid "Area"
-msgstr "Secteur"
-
-#. module: al_sale_twizza
-#: model:ir.actions.act_window,name:al_sale_twizza.al_partner_area_window_action
-#: model:ir.ui.menu,name:al_sale_twizza.al_menu_partner_area
-msgid "Areas"
-msgstr "Secteurs"
 
 #. module: al_sale_twizza
 #: model:ir.model,name:al_sale_twizza.model_res_partner
@@ -163,6 +150,11 @@ msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
 #. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order_line__margin
+msgid "Margin"
+msgstr "Marge"
+
+#. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order_line__margin_invoiced
 msgid "Margin Invoiced"
 msgstr "Marge Facturée"
@@ -178,6 +170,17 @@ msgstr "Taux de marge"
 #: model:ir.model.fields,field_description:al_sale_twizza.field_res_partner_type__name
 msgid "Name"
 msgstr "Nom"
+
+#. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order__margin_net
+#: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order_line__margin_net
+msgid "Net Margin"
+msgstr "Marge ap TSP"
+
+#. module: al_sale_twizza
+#: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order__margin_rate_net
+msgid "Net Margin Rate"
+msgstr "Taux de Marge ap TSP"
 
 #. module: al_sale_twizza
 #: model:ir.model.fields,field_description:al_sale_twizza.field_sale_order_line__tarif_unit
@@ -276,6 +279,11 @@ msgid "Select category for the current product"
 msgstr "Sélectionnez la catégorie de l'article actuel"
 
 #. module: al_sale_twizza
+#: model:ir.model,name:al_sale_twizza.model_delivery_carrier
+msgid "Shipping Methods"
+msgstr "Méthodes d'expédition"
+
+#. module: al_sale_twizza
 #: model:ir.model.fields,help:al_sale_twizza.field_crm_team__analytic_account_id
 msgid "The analytic account to use by default in a sales order."
 msgstr ""
@@ -296,8 +304,3 @@ msgstr "Coût Total"
 #, python-format
 msgid "You can't cancel a totally invoiced sale order."
 msgstr "Vous ne pouvez pas annuler une commande totalement facturée."
-
-#. module: al_sale_twizza
-#: model_terms:ir.ui.view,arch_db:al_sale_twizza.payment_mode_view_form_twizza
-msgid "payment_mode_form"
-msgstr ""

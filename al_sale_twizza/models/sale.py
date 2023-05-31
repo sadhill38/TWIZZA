@@ -14,6 +14,8 @@ class SaleOrderLineInherit(models.Model):
     product_category_id = fields.Many2one('product.category', string="Product Category", related='product_id.categ_id', readonly=True, store=True)
     total_purchase_price = fields.Float(string="Total cost", compute="_compute_cost", store=True, digits='Product Price')
     margin_invoiced = fields.Float(string='Margin Invoiced', compute='_product_margin_invoiced', digits='Product Price', store=True)
+    margin = fields.Float(compute='_product_margin', digits='Product Price', store=True)
+    margin_net = fields.Float(string="Net Margin", compute='_product_margin', digits='Product Price', store=True)
     # add groups sale_manager
     purchase_price = fields.Float(
         groups="sales_team.group_sale_manager,al_sale_twizza.group_direction_twizza_med"
@@ -64,15 +66,50 @@ class SaleOrderLineInherit(models.Model):
                     and all(move.state in ['done', 'cancel'] for move in line.move_ids):
                 line.invoice_status = 'invoiced'
 
+    @api.depends('product_id', 'purchase_price', 'product_uom_qty', 'price_unit', 'price_subtotal')
+    def _product_margin(self):
+        super(SaleOrderLineInherit, self.filtered(
+            lambda l: l.product_id.type == "product"
+        ))._product_margin()
+        for line in self:
+            currency = line.order_id.pricelist_id.currency_id
+            price = line.purchase_price
+            margin_net = line.price_subtotal - (price * line.product_uom_qty)
+            line.margin_net = currency.round(margin_net) if currency else margin_net
+
 
 class SaleOrderInherit(models.Model):
     _inherit = 'sale.order'
 
     days_to_confirm = fields.Float(string='Days to confirm', compute='_compute_days_to', store=True)
     days_to_invoice = fields.Float(string='Days to invoice', compute='_compute_days_to', store=True)
-    margin_rate = fields.Float(string='Margin Rate', compute='_compute_margin_rate', store=True)
     delivery_mode_id = fields.Many2one("delivery.mode", string="Delivery Mode")
     payment_mode_id = fields.Many2one("payment.mode", string="Payment Mode")
+    margin_rate = fields.Float(string='Margin Rate', compute='_compute_margin_rate', store=True)
+    margin_rate_net = fields.Float(string='Net Margin Rate', compute='_compute_margin_rate', store=True)
+    margin_net = fields.Monetary(
+        string='Net Margin',
+        compute='_product_margin',
+        currency_field='currency_id',
+        store=True
+    )
+
+    @api.depends('order_line.margin', 'order_line.margin_net')
+    def _product_margin(self):
+        super(SaleOrderInherit, self)._product_margin()
+        for order in self:
+            order.margin_net = sum(order.order_line.filtered(lambda r: r.state != 'cancel').mapped('margin_net'))
+
+    @api.depends('margin', 'order_line', 'order_line.total_purchase_price', 'order_line.product_id.type')
+    def _compute_margin_rate(self):
+        for rec in self:
+            total_cost = sum(rec.order_line.mapped('total_purchase_price'))
+            if total_cost != 0.0:
+                rec.margin_rate = (rec.margin / total_cost) * 100
+                rec.margin_rate_net = (rec.margin_net / total_cost) * 100
+            else:
+                rec.margin_rate = 100
+                rec.margin_rate_net = 100
 
     @api.onchange('team_id')
     def _onchange_team_id(self):
@@ -96,15 +133,6 @@ class SaleOrderInherit(models.Model):
             'payment_mode_id': self.partner_id.payment_mode_id.id or False,
         })
         return super(SaleOrderInherit, self).onchange_partner_id()
-
-    @api.depends('margin', 'order_line', 'order_line.total_purchase_price')
-    def _compute_margin_rate(self):
-        for rec in self:
-            total_cost = sum(rec.order_line.mapped('total_purchase_price'))
-            if total_cost != 0.0:
-                rec.margin_rate = (rec.margin / total_cost) * 100
-            else:
-                rec.margin_rate = 100
 
     @api.depends('create_date', 'date_order', 'state', 'invoice_ids', 'invoice_ids.invoice_date')
     def _compute_days_to(self):
@@ -166,4 +194,9 @@ class SaleOrderInherit(models.Model):
         for rec in self:
             if rec.invoice_status == 'invoiced':
                 raise exceptions.ValidationError(_("You can't cancel a totally invoiced sale order."))
-        return super(SaleOrderInherit, self).action_cancel()
+        return super().action_cancel()
+
+    def _compute_amount_total_without_delivery(self):
+        res = super()._compute_amount_total_without_delivery()
+        delivery_cost = self.amount_total - res
+        return self.amount_untaxed - delivery_cost
